@@ -1,17 +1,16 @@
 # Summary
 
 * [序](README.md)
-* [基础知识](chapter1.md)
-  * [编码规范](chapter1/bian-ma-gui-fan.md)
-* 数据结构与算法
-* [设计基础](she-ji-ji-chu.md)
-* [客户端](ke-hu-duan.md)
-* [服务器端](fu-wu-qi-duan.md)
-* [云上世界](yun-shang-you-sha.md)
-* [先利其器](xian-li-qi-qi.md)
-* [团队建设](tuan-dui-jian-she.md)
-* [卓有成效的管理者](zhuo-you-cheng-xiao-de-guan-li-zhe.md)
-* 先利其器
+* [基础知识](basics.md)
+  * [编码规范](basics/coding-conventions.md)
+* [数据结构与算法](data-structure-algorithm)
+* [设计基础](design-essentials.md)
+* [客户端](clients.md)
+* [服务器端](servers.md)
+* [云上观](up-in-the-cloud.md)
+* [善事利器](tools-utils)
+* [团队是怎样炼成的](team-building.md)
+* [卓有成效的管理者](effective-executive.md)
 * [Mac](mac.md)
-* [码里码外](ma-li-ma-wai.md)
+* [码里码外](out-of-box.md)
 
