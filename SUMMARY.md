@@ -7,10 +7,10 @@
 * [设计基础](design-essentials.md)
 * [客户端](clients.md)
 * [服务器端](servers.md)
+* [安全安全安全](security.md)
 * [云上观](up-in-the-cloud.md)
 * [善事利器](tools-utils.md)
 * [团队是怎样炼成的](team-building.md)
 * [卓有成效的管理者](effective-executive.md)
 * [Mac](mac.md)
-* [码里码外](out-of-box.md)
 
