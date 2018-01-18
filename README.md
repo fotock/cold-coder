@@ -1,6 +1,6 @@
 # 序
 
-![](/assets/working-with-laptop-svgrepo-com.svg)
+![](/assets/working-with-laptop-svgrepo-com.svg | width=400)
 
 本书不是百科全书，只是我生活中遇到的一颗颗珍珠。
 
