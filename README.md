@@ -4,7 +4,7 @@
 
 ```java
 me = Person();
-while ( me.awake() ) {
+while (me.awake()) {
     me.code();
 }
 ```
