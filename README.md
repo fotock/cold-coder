@@ -1,3 +1,4 @@
-# My Awesome Book
+# 序
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+本书不是百科全书，只是我生活中遇到的一颗颗珍珠。
+
