@@ -1,6 +1,7 @@
 # 序
 
 <br>
+
 ```java
 me = Person();
 while ( me.awake() ) {
