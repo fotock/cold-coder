@@ -13,4 +13,5 @@
 * [团队是怎样炼成的](team-building.md)
 * [卓有成效的管理者](effective-executive.md)
 * [Mac](mac.md)
+* [Gitbook-howto](gitbook-howto.md)
 
