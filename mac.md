@@ -1,10 +1,32 @@
 # Mac
 
-## 
 
-## 常用配置
+#### 常用配置
 
-## 常用软件
-
-
-
+#### 软件列表
+- Adobe Illustrator
+- Adobe Lightroom
+- Adobe Photoshop
+- Android Studio
+- Chrome
+    1. Adblock Pro
+    2. Application Launcher for Drive
+    3. Full Page Screen Capture
+    4. Page Ruler
+    5. Proxy SwitchyOmega
+- CleanMyMac
+- Cornerstone
+- Github
+- ImageOptim
+- Jump Desktop
+- Memory Clean
+- MS Office for Mac
+- Photoshop CS6
+- Postman
+- Sketch
+- SourceTree
+- TeamViewer
+- Terminius
+- VS Code
+- Xcode
+- Yummy FTP
