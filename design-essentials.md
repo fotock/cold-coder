@@ -18,3 +18,12 @@
   http://iconfont.cn
 - svg 在线转字体库
   https://app.fontastic.me
+
+
+#### 其他资源
+- Material 设计
+  https://material.io/guidelines/material-design
+- 谷歌设计
+  https://design.google
+- 常见设备参数
+  https://material.io/devices

@@ -2,6 +2,17 @@
 
 
 #### 常用配置
+- Xcode 垃圾清理1:
+```bash
+cd ~/Library/Developer/Xcode/iOS DeviceSupport
+```
+- Xcode 垃圾清理2:
+```bash
+cd ~/Library/Developer/CoreSimulator/Devices
+for i in `ls`; do du -sh $i; done | sort
+```
+
+<br>
 
 #### 软件列表
 - Adobe Illustrator
