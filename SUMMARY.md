@@ -8,7 +8,7 @@
 * [客户端](clients.md)
 * [服务器端](servers.md)
   * [Nginx](servers/nginx.md)
-  * [Nginx](servers/netdata.md)
+  * [Netdata](servers/netdata.md)
   * [Node](servers/node-js.md)
 * [安全安全安全](security.md)
   * [Comodo SSL](security/comodo.md)
