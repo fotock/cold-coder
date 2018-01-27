@@ -1,7 +1,7 @@
 # 基础知识
 
 
-<img src="/assets/working-with-laptop-svgrepo-com.svg" alt="" width="200">
+<img src="/assets/working-with-laptop-svgrepo-com.svg" alt="" width="220">
 
 <br>
 <br>

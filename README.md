@@ -2,10 +2,10 @@
 
 <br>
 
-```java
-me = Person();
-while (me.awake()) {
-    me.code();
+```swift
+me = Person()
+while (me.awake) {
+    me.code()
 }
 ```
 
