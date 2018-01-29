@@ -11,7 +11,7 @@
   * [Netdata](servers/netdata.md)
   * [Node](servers/node-js.md)
 * [安全安全安全](security.md)
-  * [Comodo SSL](security/comodo.md)
+  * [Comodo](security/comodo.md)
 * [云上观](up-in-the-cloud.md)
 * [善事之利器](tools-utils.md)
 * [团队是怎样炼成的](team-building.md)
