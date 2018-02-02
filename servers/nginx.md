@@ -4,10 +4,28 @@
 <img src="/assets/nginx-request-flow.png" alt="">
 
 
-#### configure
+#### 编译配置
 ```bash
-./configure --with-threads  --with-pcre --with-http_ssl_module --with-http_gzip_static_module --with-http_auth_request_module  --with-http_mp4_module --with-http_stub_status_module --with-http_v2_module  --with-http_gunzip_module --with-http_realip_module --with-debug --prefix=/web/soft/nginx --http-log-path=/web/log/nginx/access.log --error-log-path=/web/log/nginx/nginx.log --user=www --group=www --http-client-body-temp-path=/var/tmp/nginx/client --http-proxy-temp-path=/var/tmp/nginx/proxy --http-fastcgi-temp-path=/var/tmp/nginx/fastcgi
+./configure --with-threads \
+ --with-pcre \
+ --with-http_ssl_module \
+ --with-http_gzip_static_module \
+ --with-http_auth_request_module \
+ --with-http_mp4_module \
+ --with-http_stub_status_module \
+ --with-http_v2_module  \
+ --with-http_gunzip_module \
+ --with-http_realip_module \
+ --with-debug \
+ --prefix=/web/soft/nginx \
+ --http-log-path=/web/log/nginx/access.log \
+ --error-log-path=/web/log/nginx/nginx.log \
+ --http-client-body-temp-path=/var/tmp/nginx/client \
+ --http-proxy-temp-path=/var/tmp/nginx/proxy \
+ --http-fastcgi-temp-path=/var/tmp/nginx/fastcgi
 ```
+
+<br>
 
 ### 目录结构
 ```
@@ -26,10 +44,12 @@ conf
        \_ site-abc.com.conf
 ```
 
-#### nginx.conf
+<br>
+
+#### 配置示例: nginx.conf
 
 ```nginx
-user  www;
+user  www www;
 worker_processes  auto;
 worker_rlimit_nofile 100000;
 
@@ -62,7 +82,6 @@ http {
     keepalive_requests 100000;
     client_max_body_size 90m;
     types_hash_max_size 4096;
-    server_tokens off;
 
     gzip  on;
     gzip_disable "msie6";
@@ -71,11 +90,20 @@ http {
     gzip_buffers 16 8k;
     gzip_types text/plain application/xml text/css text/js text/xml text/javascript application/javascript application/json application/xml+rss;
 
+    server_tokens off;
+    add_header X-Frame-Options SAMEORIGIN;
+    add_header X-Content-Type-Options nosniff;
+    add_header X-XSS-Protection "1; mode=block";
+
+    # 允许内容来源. 需自行按实际情况修改: 如允许百度统计、腾讯统计、公共 css/js CDN等
+    #add_header Content-Security-Policy "default-src 'self'; script-src 'self' https://ssl.google-analytics.com; img-src 'self' https://ssl.google-analytics.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://themes.googleusercontent.com; frame-src 'none'; object-src 'none'";
+
     include conf.d/site*;
 }
 ```
+<br>
 
-#### conf.d/_proxy.conf
+#### 代理参数配置: conf.d/_proxy.conf
 ```nginx
 proxy_connect_timeout 300;
 proxy_send_timeout 300;
@@ -101,7 +129,9 @@ proxy_set_header X-Real-IP $remote_addr;
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 ```
 
-#### SSL 配置 (conf.d/_ssl.conf)
+<br>
+
+#### SSL 参数配置 (conf.d/_ssl.conf)
 该配置可在证书安全评测网站 https://myssl.com 和 https://www.ssllabs.com/ssltest 获得最高级 A+ 评级。
 ```nginx
 ssl on;
@@ -110,22 +140,45 @@ ssl_protocols  TLSv1 TLSv1.1 TLSv1.2;
 ssl_certificate          /web/soft/nginx/ssl/abc.com.crt;v
 ssl_certificate_key      /web/soft/nginx/ssl/abc.com.key;
 
-ssl_session_cache  builtin:1000  shared:SSL:10m;
+# 不推荐使用 builtin:1000. 1MB共享缓存可容纳约4000个会话
+ssl_session_cache shared:SSL:80m;
+ssl_session_timeout 24h;
+ssl_session_tickets off;
 
-ssl_ciphers "EECDH+ECDSA+AESGCM:EECDH+aRSA+AESGCM:EECDH+ECDSA+SHA512:EECDH+ECDSA+SHA384:EECDH+ECDSA+SHA256:EECDH+AESGCM:ECDH+AES256:AES256+EECDH:AES256+EDH:RSA+AESGCM:!aNULL:!eNULL:!LOW:!RC4:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS";
+ssl_ciphers "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE+ECDSA+SHA512:ECDHE+ECDSA+SHA384:ECDHE+ECDSA+SHA256:AES256+ECDHE:!EXPORT:!aNULL:!eNULL:!LOW:!RC4:!DES:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS";
 ssl_prefer_server_ciphers on;
 
 ssl_stapling on;
 ssl_stapling_verify on;
-ssl_trusted_certificate /web/soft/nginx/ssl/abc.com.ca;
 
-add_header X-Frame-Options DENY;
-add_header X-XSS-Protection "1; mode=block";
-add_header X-Content-Type-Options nosniff;
-add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
+# 证书链完整验证. Root CA 和 Intermediate 证书
+ssl_trusted_certificate /web/soft/nginx/ssl/abc.com.ca-intermediates;
+
+# 获得A+评级必不可少. 15768000 = 6个月
+add_header Strict-Transport-Security "max-age=15768000; includeSubdomains";
+
+```
+__说明__
+1. 关于 DH params, 可以生成4096位的。嫌麻烦，干脆禁用它。
+```bash
+cd /etc/ssl/certs
+openssl dhparam -out dhparam.pem 4096
 ```
 
-#### site-php-fpm.conf
+```nginx
+ssl_dhparam /etc/ssl/certs/dhparam.pem;
+```
+2. DNS解析. 就国内来说, 也可以加个你信任的.
+```nginx
+# resolver <你的 DNS 服务器 IP>;
+```
+
+3. 其他 Apache, Lighttpd, HAProxy 等配置可参考Mozilla官方的推荐配置:
+https://mozilla.github.io/server-side-tls/ssl-config-generator
+
+<br>
+
+#### PHP-FPM 站点配置示例 site-php-fpm.conf
 ```nginx
 server {
     listen 80 default_server;
@@ -148,8 +201,9 @@ server {
     access_log  /web/log/nginx/a.com.access.log  detailed;
 }
 ```
+<br>
 
-#### site-upstream.conf
+#### 代理站点配置 site-proxy.conf
 ```nginx
 upstream upstream {
     keepalive 100;
@@ -169,9 +223,15 @@ server {
     access_log  /web/log/nginx/a.com.access.log  detailed;
 }
 ```
+<br>
 
-#### site-ssl-proxy.conf
+#### 启用 SSL 代理站点配置 site-ssl-proxy.conf
 ```nginx
+upstream upstreamssl {
+    keepalive 100;
+    server localhost:8080;
+}
+
 server {
     listen [::]:443 ssl http2;
     listen      443 ssl http2;
@@ -188,11 +248,13 @@ server {
 
     location @doProxy{
         internal;
-        proxy_pass  http://10.28.53.13:10880;
+        proxy_pass  http://upstreamssl;
         include conf.d/_proxy.conf;
     }
 }
 ```
+
+<br>
 
 #### 性能测试 (ApacheBench)
 环境:

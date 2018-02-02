@@ -1,6 +1,6 @@
 # 安全安全安全
 
-> 验证一切用户数据: 包括但不限于 GET、POST、 COOKIE 等参数值。
+> 认证/验证一切来源数据: 包括但不限于 GET、POST、 COOKIE 等参数值。
 
 <br>
 
@@ -22,19 +22,29 @@
 
 #### C. 操作系统安全
 - 及时更新软件
-- 防火墙。只开放需要的端口
-- 数据库、缓存等服务关闭公网访问
+- 只开放需要的端口. 可能的话,修改默认端口
 - 及时备份
 
+#### D. 服务安全
+- 数据库、缓存、集群服务等内部服务, 关闭公网访问
+- 有成为别人的挖坑设备的风险的服务:
+  1. Redis. 需要连接密码验证, 禁止公网访问.
+  2. Jenkins. 更新成最新版本.
 
-#### D. SSL / CA 证书
+#### E. SSL / CA 证书
 IIS 需要在所在的 Windows 服务器上生成 CSR。
 
 - 请选择赛门铁克等国际品牌
 - Comodo 性价比很高
 - 证书格式在线转换
   https://www.sslshopper.com/ssl-converter.html
-- 证书状态检查/安全评估
+- 证书状态检查/安全评估 (国内)
   https://myssl.com
+- 证书状态检查/安全评估 (国外)
+  https://www.ssllabs.com/ssltest
 - Windows 服务器 SSL/TLS 配置
   https://www.nartac.com/Products/IISCrypto
+- 推荐证书安全配置 (Apache, Nginx, Lighttpd, HAProxy)
+  https://mozilla.github.io/server-side-tls/ssl-config-generator
+
+  

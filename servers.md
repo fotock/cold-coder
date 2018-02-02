@@ -13,7 +13,7 @@
 4. 语言: Java, PHP, Bash, Node JS
 5. 监控: Netdata, vnstat
 6. 编辑器: Vim
-7. 其他: 
+7. 其他常用bash命令: 
     - find
     - grep 
     - sed

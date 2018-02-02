@@ -20,10 +20,14 @@
   https://app.fontastic.me
 
 
-#### 其他资源
+#### 其他
 - Material 设计
   https://material.io/guidelines/material-design
 - 谷歌设计
   https://design.google
+- Dribbble (设计shots分享)
+  https://dribbble.com
+- Behance (创意设计发现与示例)
+  https://behance.net
 - 常见设备参数
   https://material.io/devices
