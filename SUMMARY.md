@@ -17,5 +17,6 @@
 * [团队是怎样炼成的](team-building.md)
 * [卓有成效的管理者](effective-executive.md)
 * [Mac](mac.md)
+* [码里码外](out-of-box.md)
 * [当我编码时, 我在谈些什么](talks.md)
 * [用 Gitbook 写此书](gitbook-howto.md)
