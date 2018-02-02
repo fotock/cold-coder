@@ -19,4 +19,3 @@
 * [Mac](mac.md)
 * [当我编码时, 我在谈些什么](talks.md)
 * [用 Gitbook 写此书](gitbook-howto.md)
-
