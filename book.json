@@ -3,8 +3,8 @@
         "styles-sass"
     ],
     "styles": {
-        "website": "styles/website.css",
-        "ebook": "styles/ebook.css",
-        "pdf": "styles/pdf.css"
+        "website": "styles/website.sass",
+        "ebook": "styles/ebook.sass",
+        "pdf": "styles/pdf.sass"
     }
 }
