@@ -16,6 +16,7 @@
  --with-http_v2_module  \
  --with-http_gunzip_module \
  --with-http_realip_module \
+ --with-http_slice_module \
  --with-debug \
  --prefix=/web/soft/nginx \
  --http-log-path=/web/log/nginx/access.log \
@@ -137,7 +138,7 @@ proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 ssl on;
 ssl_protocols  TLSv1 TLSv1.1 TLSv1.2;
 
-ssl_certificate          /web/soft/nginx/ssl/abc.com.crt;v
+ssl_certificate          /web/soft/nginx/ssl/abc.com.crt;
 ssl_certificate_key      /web/soft/nginx/ssl/abc.com.key;
 
 # 不推荐使用 builtin:1000. 1MB共享缓存可容纳约4000个会话
