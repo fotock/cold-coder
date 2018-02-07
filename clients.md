@@ -11,5 +11,5 @@
 - ChartJS
 
 #### CSS 编辑
-- SCSS
+- LESS
 - SASS
