@@ -39,7 +39,7 @@ for i in `ls`; do du -sh $i; done | sort
 - Sketch
   只有Mac版本。
 - SourceTree
-- TeamViewer
+- TeamViewer
 - Terminius
 - VS Code
   用过的最好用的编辑器了。不知道是不是之一。

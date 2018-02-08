@@ -5,7 +5,7 @@
 <br>
 
 公网服务要经得起各种测试和攻击。从日志里可以分析各种攻击。
-腾讯的项目一般都要求可经受一天几百万次的安全检测请求。
+腾讯的项目一般都要求可经受一天几百万次的安全检测请求。
 
 <br>
 
@@ -32,7 +32,7 @@
   2. Jenkins. 更新成最新版本.
 
 #### E. SSL / CA 证书
-IIS 需要在所在的 Windows 服务器上生成 CSR。
+IIS 需要在所在的 Windows 服务器上生成 CSR。
 
 - 请选择赛门铁克等国际品牌
 - Comodo 性价比很高
@@ -42,9 +42,9 @@ IIS 需要在所在的 Windows 服务器上生成 CSR。
   https://myssl.com
 - 证书状态检查/安全评估 (国外)
   https://www.ssllabs.com/ssltest
-- Windows 服务器 SSL/TLS 配置
+- Windows 服务器 SSL/TLS 配置
   https://www.nartac.com/Products/IISCrypto
 - 推荐证书安全配置 (Apache, Nginx, Lighttpd, HAProxy)
   https://mozilla.github.io/server-side-tls/ssl-config-generator
 
-  
+
