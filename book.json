@@ -1,10 +1,10 @@
 {
     "plugins": [
-        "styles-sass"
+        "styles-less"
     ],
     "styles": {
-        "website": "styles/website.sass",
-        "ebook": "styles/ebook.sass",
-        "pdf": "styles/pdf.sass"
+        "website": "styles/website.less",
+        "ebook": "styles/ebook.less",
+        "pdf": "styles/pdf.less"
     }
 }
