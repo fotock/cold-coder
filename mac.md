@@ -25,23 +25,33 @@ for i in `ls`; do du -sh $i; done | sort
     4. Page Ruler
     5. Proxy SwitchyOmega
 - CleanMyMac
+
   电脑清理必备. 软件卸载、垃圾清理等等.
+
 - Cornerstone
 - Github
 - ImageOptim
+
   图片压缩。上传到网站服务器前，最好压一下。
+
 - Jump Desktop
 - Memory Clean
+
   自动优化并释放内存。
+
 - MS Office for Mac
 - Photoshop CS6
 - Postman
 - Sketch
+
   只有Mac版本。
+
 - SourceTree
 - TeamViewer
 - Terminius
 - VS Code
+
   用过的最好用的编辑器了。不知道是不是之一。
+
 - Xcode
 - Yummy FTP
