@@ -1,6 +1,6 @@
 # Nginx
 
-#### 请求处理流
+#### 请求处理流
 <img src="/assets/nginx-request-flow.png" alt="">
 
 
@@ -47,7 +47,7 @@ conf
 
 <br>
 
-#### 配置示例: nginx.conf
+#### 配置示例: nginx.conf
 
 ```nginx
 user  www www;
@@ -132,7 +132,7 @@ proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 
 <br>
 
-#### SSL 参数配置 (conf.d/_ssl.conf)
+#### SSL 参数配置 (conf.d/_ssl.conf)
 该配置可在证书安全评测网站 https://myssl.com 和 https://www.ssllabs.com/ssltest 获得最高级 A+ 评级。
 ```nginx
 ssl on;
@@ -198,7 +198,7 @@ server {
         fastcgi_param   SCRIPT_FILENAME    $document_root$fastcgi_script_name;
         fastcgi_param   SCRIPT_NAME        $fastcgi_script_name;
     }
-    
+
     access_log  /web/log/nginx/a.com.access.log  detailed;
 }
 ```
@@ -257,8 +257,8 @@ server {
 
 <br>
 
-#### 性能测试 (ApacheBench)
-环境:
+#### 性能测试 (ApacheBench)
+环境:
 阿里云ECS，双核 Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz
 ab 与 nginx 在同机进行测试。34737个请求每秒是几次结果中较高的值。
 
