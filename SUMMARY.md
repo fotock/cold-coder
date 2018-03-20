@@ -19,4 +19,5 @@
 * [11 Mac](mac.md)
 * [12 码里码外](out-of-box.md)
 * [13 当我编码时, 我在谈些什么](talks.md)
-* [14 用 Gitbook 写此书](gitbook-howto.md)
+* [14 GitHub](github.md)
+* [15 用 Gitbook 写此书](gitbook-howto.md)

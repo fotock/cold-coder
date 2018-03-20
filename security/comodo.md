@@ -69,7 +69,7 @@ openssl crl2pkcs7 -nocrl \
 -out your_domain_com.p7b
 ```
 
-2. 在线转化
+2. 在线证书格式转化
 
 https://www.sslshopper.com/ssl-converter.html
 

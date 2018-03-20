@@ -10,6 +10,9 @@ unpigz -c FILE.tar.gz | wc -l
 
 ```bash
 tcpdump -i eth1 -n "dst host 127.0.0.1 and src port 80" -X -s 0
+
+# 去掉一些空的包
+tcpdump -i eth1 -n "dst host 127.0.0.1 and greater 120" -X
 ```
 
 - 按内存高低显示 PID 和 进程

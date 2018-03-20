@@ -16,3 +16,8 @@ https://db-ip.com/api
 #### 在线 Chart 图表制作 (line, bar, area, pie, bubble, ...)
 
 https://live.amcharts.com/new
+
+#### 国家/世界SVG地图下载
+
+https://pixelmap.amcharts.com
+
