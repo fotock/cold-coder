@@ -14,6 +14,7 @@
   * [6.1 Comodo](security/comodo.md)
 * [7 云上观](up-in-the-cloud.md)
 * [8 善事之利器](tools-utils.md)
+  * [8.1 VIM](tools/vim.md)
 * [9 团队是怎样炼成的](team-building.md)
 * [10 卓有成效的管理者](effective-executive.md)
 * [11 Mac](mac.md)
