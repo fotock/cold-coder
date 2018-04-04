@@ -153,7 +153,8 @@ ssl_trusted_certificate /web/soft/nginx/ssl/abc.com.ca-intermediates;
 add_header Strict-Transport-Security "max-age=15768000; includeSubdomains";
 ```
 
-__说明__
+#### 说明
+
 第1. 关于 DH params, 可以生成4096位的。嫌麻烦，干脆禁用它。
 ```bash
 cd /etc/ssl/certs
