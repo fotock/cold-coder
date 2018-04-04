@@ -12,7 +12,6 @@ cd ~/Library/Developer/CoreSimulator/Devices
 for i in `ls`; do du -sh $i; done | sort
 ```
 
-<br>
 
 ## 软件列表
 - Adobe Illustrator

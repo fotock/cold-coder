@@ -26,7 +26,6 @@
  --http-fastcgi-temp-path=/var/tmp/nginx/fastcgi
 ```
 
-<br>
 
 ## 目录结构
 ```
@@ -44,8 +43,6 @@ conf
        \_ _ssl.conf
        \_ site-abc.com.conf
 ```
-
-<br>
 
 ## 配置示例: nginx.conf
 
@@ -102,7 +99,6 @@ http {
     include conf.d/site*;
 }
 ```
-<br>
 
 ## 代理参数配置: conf.d/_proxy.conf
 ```nginx
@@ -130,8 +126,6 @@ proxy_set_header X-Real-IP $remote_addr;
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 ```
 
-<br>
-
 ## SSL 参数配置 (conf.d/_ssl.conf)
 该配置可在证书安全评测网站 https://myssl.com 和 https://www.ssllabs.com/ssltest 获得最高级 A+ 评级。
 ```nginx
@@ -157,10 +151,10 @@ ssl_trusted_certificate /web/soft/nginx/ssl/abc.com.ca-intermediates;
 
 # 获得A+评级必不可少. 15768000 = 6个月
 add_header Strict-Transport-Security "max-age=15768000; includeSubdomains";
-
 ```
+
 __说明__
-1. 关于 DH params, 可以生成4096位的。嫌麻烦，干脆禁用它。
+第1. 关于 DH params, 可以生成4096位的。嫌麻烦，干脆禁用它。
 ```bash
 cd /etc/ssl/certs
 openssl dhparam -out dhparam.pem 4096
@@ -169,15 +163,14 @@ openssl dhparam -out dhparam.pem 4096
 ```nginx
 ssl_dhparam /etc/ssl/certs/dhparam.pem;
 ```
-2. DNS解析. 就国内来说, 也可以加个你信任的.
+第2. DNS解析. 就国内来说, 也可以加个你信任的.
 ```nginx
 # resolver <你的 DNS 服务器 IP>;
 ```
 
-3. 其他 Apache, Lighttpd, HAProxy 等配置可参考Mozilla官方的推荐配置:
+第3. 其他 Apache, Lighttpd, HAProxy 等配置可参考Mozilla官方的推荐配置:
 https://mozilla.github.io/server-side-tls/ssl-config-generator
 
-<br>
 
 ## PHP-FPM 站点配置示例 site-php-fpm.conf
 ```nginx
@@ -202,7 +195,6 @@ server {
     access_log  /web/log/nginx/a.com.access.log  detailed;
 }
 ```
-<br>
 
 ## 代理站点配置 site-proxy.conf
 ```nginx
@@ -224,7 +216,6 @@ server {
     access_log  /web/log/nginx/a.com.access.log  detailed;
 }
 ```
-<br>
 
 ## 启用 SSL 代理站点配置 site-ssl-proxy.conf
 ```nginx
@@ -255,7 +246,6 @@ server {
 }
 ```
 
-<br>
 
 ## 性能测试 (ApacheBench)
 环境:
