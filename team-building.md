@@ -2,22 +2,22 @@
 
  
 
-#### 团队组建
+## 团队组建
 
   
 
-#### 项目管理
+## 项目管理
 
-##### Confluence
-##### JIRA
+### Confluence
+### JIRA
 
   
 
-#### 版本控制
+## 版本控制
 
-##### SVN
-##### Git
-##### GitLab
+### SVN
+### Git
+### GitLab
 
 
 

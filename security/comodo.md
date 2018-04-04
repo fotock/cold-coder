@@ -1,7 +1,7 @@
 # Comodo
 
 性价比相当高。
-国际市场占有率 NO1。不会有客户端或浏览器不信任的情况。
+全球市场占有率很高。不会有客户端或浏览器不信任的情况。
 
 ![](https://w3techs.com/diagram/history_overview/ssl_certificate/ms/m)
 [来源: https://w3techs.com](https://w3techs.com/technologies/history_overview/ssl_certificate)

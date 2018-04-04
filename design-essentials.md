@@ -1,6 +1,6 @@
 # 设计基础
 
-#### 设计软件
+## 设计软件
 - __Adobe PS__
 
   图片处理
@@ -18,7 +18,7 @@
   页面设计 (仅有Mac版)
 
 
-#### 图标库
+## 图标库
 - FlatIcon
 
   https://flaticon.com
@@ -32,7 +32,7 @@
   https://app.fontastic.me
 
 
-#### 其他
+## 其他
 - Material 设计
 
   https://material.io/guidelines/material-design

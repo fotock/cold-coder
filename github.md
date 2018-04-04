@@ -1,11 +1,11 @@
 # GitHub
 GitHub 好地方。好地方有好风光。
 
-### 一些统计数据
+## 一些统计数据
 https://gitstar-ranking.com
 
 
-### GraphQL
+## GraphQL
 第4版 API 使用了 GraphQL，取代了之前的 REST API, 功能及灵活性上更强。
 
 1. 查询示例中。 `after` 某个 cursor 可用于分页。

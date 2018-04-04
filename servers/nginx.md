@@ -1,10 +1,10 @@
 # Nginx
 
-#### 请求处理流
+## 请求处理流
 <img src="/assets/nginx-request-flow.png" alt="">
 
 
-#### 编译配置
+## 编译配置
 ```bash
 ./configure --with-threads \
  --with-pcre \
@@ -28,7 +28,7 @@
 
 <br>
 
-### 目录结构
+## 目录结构
 ```
 sbin
   \_ nginx
@@ -47,7 +47,7 @@ conf
 
 <br>
 
-#### 配置示例: nginx.conf
+## 配置示例: nginx.conf
 
 ```nginx
 user  www www;
@@ -104,7 +104,7 @@ http {
 ```
 <br>
 
-#### 代理参数配置: conf.d/_proxy.conf
+## 代理参数配置: conf.d/_proxy.conf
 ```nginx
 proxy_connect_timeout 300;
 proxy_send_timeout 300;
@@ -132,7 +132,7 @@ proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 
 <br>
 
-#### SSL 参数配置 (conf.d/_ssl.conf)
+## SSL 参数配置 (conf.d/_ssl.conf)
 该配置可在证书安全评测网站 https://myssl.com 和 https://www.ssllabs.com/ssltest 获得最高级 A+ 评级。
 ```nginx
 ssl on;
@@ -179,7 +179,7 @@ https://mozilla.github.io/server-side-tls/ssl-config-generator
 
 <br>
 
-#### PHP-FPM 站点配置示例 site-php-fpm.conf
+## PHP-FPM 站点配置示例 site-php-fpm.conf
 ```nginx
 server {
     listen 80 default_server;
@@ -204,7 +204,7 @@ server {
 ```
 <br>
 
-#### 代理站点配置 site-proxy.conf
+## 代理站点配置 site-proxy.conf
 ```nginx
 upstream upstream {
     keepalive 100;
@@ -226,7 +226,7 @@ server {
 ```
 <br>
 
-#### 启用 SSL 代理站点配置 site-ssl-proxy.conf
+## 启用 SSL 代理站点配置 site-ssl-proxy.conf
 ```nginx
 upstream upstreamssl {
     keepalive 100;
@@ -257,7 +257,7 @@ server {
 
 <br>
 
-#### 性能测试 (ApacheBench)
+## 性能测试 (ApacheBench)
 环境:
 阿里云ECS，双核 Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz
 ab 与 nginx 在同机进行测试。34737个请求每秒是几次结果中较高的值。
