@@ -7,7 +7,7 @@
 [来源: https://w3techs.com](https://w3techs.com/technologies/history_overview/ssl_certificate)
 
 
-#### 签发结果包含4个文件
+## 签发结果包含4个文件
 1. AddTrustExternalCARoot.crt
 2. COMODORSADomainValidationSecureServerCA.crt
 3. COMODORSAAddTrustCA.crt
@@ -16,7 +16,7 @@
 文件名中带 CA 字符的文件均为签发机构 Comodo 的信息。
 仅最后一个为必不可少的 SSL 证书.
 
-#### Nginx 部署
+## Nginx 部署
 配置文件里必须的有两个: .key 文件和 .crt 文件。
 ```nginx
 ssl_certificate          /web/soft/nginx/ssl/abc.com.crt;
@@ -32,7 +32,7 @@ ssl_trusted_certificate /web/soft/nginx/ssl/abc.com.ca-intermediates;
 
 更多请参考 "服务器 &gt; Nginx" 章节。
 
-#### Apache 部署
+## Apache 部署
 三个文件: key, crt, ca (将带 CA 的文件合并成一个 .ca 文件).
 ```apache
 SSLCertificateKeyFile /path/to/domainname.key
@@ -40,7 +40,7 @@ SSLCertificateFile /path/to/domainname.crt
 SSLCertificateChainFile /path/to/domainname.ca
 ```
 
-#### Tomcat 部署
+## Tomcat 部署
 需要转化成 .jks 文件的话, 参考以下配置:
 ```xml
 <Connector port="443"
@@ -56,7 +56,7 @@ SSLCertificateChainFile /path/to/domainname.ca
         keystorePass="123456" />
 ```
 
-#### IIS 部署
+## IIS 部署
 需要转化成 .p7b 文件的话.
 
 1. 有openssl的，可使用下面的命令:
