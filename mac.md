@@ -56,6 +56,7 @@ for i in `ls`; do du -sh $i; done | sort
 - Yummy FTP
 
 ## 各目录用量
+```
 112G	Users
  25G	Applications
  15G	private
@@ -74,4 +75,5 @@ for i in `ls`; do du -sh $i; done | sort
   0B	etc
   0B	tmp
   0B	var
+```
 
