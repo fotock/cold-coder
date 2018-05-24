@@ -50,7 +50,28 @@ for i in `ls`; do du -sh $i; done | sort
 - Terminius
 - VS Code
 
-  用过的最好用的编辑器了。不知道是不是之一。
+  用过的最好用的编辑器之一。
 
 - Xcode
 - Yummy FTP
+
+## 各目录用量
+112G	Users
+ 25G	Applications
+ 15G	private
+9.4G	Library
+9.6G	System
+3.3G	usr
+2.4G	cores
+847M	opt
+2.6M	bin
+4.5K	dev
+1.0K	home
+1.0K	net
+1.2M	sbin
+8.0K	Volumes
+  0B	Network
+  0B	etc
+  0B	tmp
+  0B	var
+
