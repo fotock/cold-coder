@@ -12,6 +12,35 @@ done
 ```
 <img src="/assets/bash_colors.png" alt="" width="220">
 
+更多信息: http://jafrog.com/2013/11/23/colors-in-terminal.html
+
+
+## 捕捉 Ctrl + C 并 结束后台进程
+```bash
+#! /bin/bash
+
+PS1=""
+PS2=""
+
+function trap_ctrlc ()
+{
+    echo "Doing cleanup pid: $PS1 $PS2"
+    kill -9 $PS1
+    kill -9 $PS2
+
+    exit 2
+}
+
+trap "trap_ctrlc" 2
+
+tail -f /mnt/admin/logs/login.log  | GREP_COLOR='01;32' grep --color=always '43.243.12.216.*1120' &
+PS1=$!
+
+tail -f /mnt/admin/logs/biz.log | GREP_COLOR='01;36' grep --color=always '43.243.12.216.*1120' &
+PS2=$!
+
+tcpdump -i eth1 -n "dst port 9998 and src host 43.243.12.216 and greater 60" -X
+```
 
 
 - 计算 gz 压缩文件内容行数
