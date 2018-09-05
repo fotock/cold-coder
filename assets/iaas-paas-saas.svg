@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1201px" height="1325px" viewBox="0 0 1201 1325" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>service-compare</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#70AD46" offset="0%"></stop>
+            <stop stop-color="#5A9BD5" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="url(#linearGradient-1)" transform="translate(584.000000, 879.000000) rotate(90.000000) translate(-584.000000, -879.000000) " x="560" y="295" width="48" height="1168"></rect>
+        <rect id="Rectangle-2" stroke="#F5A623" fill-opacity="0.1" fill="#4FF6F5" x="275.5" y="48.5" width="925" height="791"></rect>
+        <text id="用户管理" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+            <tspan x="6.5" y="886">用户管理</tspan>
+        </text>
+        <text id="服务商管理" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+            <tspan x="1040" y="886">服务商管理</tspan>
+        </text>
+        <g id="云计算" transform="translate(600.000000, 0.000000)">
+            <rect id="Rectangle" fill="#F5A623" x="0" y="0" width="274" height="48"></rect>
+            <text font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                <tspan x="101" y="31">云计算</tspan>
+            </text>
+        </g>
+        <g id="Elements" transform="translate(0.000000, 130.000000)">
+            <g id="Group">
+                <rect id="Rectangle" fill="#5A9BD5" x="0" y="0" width="247" height="48"></rect>
+                <text id="Applications" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="56.66" y="31">Applications</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(307.000000, 0.000000)">
+                <rect id="Rectangle" fill="#5A9BD5" x="0" y="0" width="247" height="48"></rect>
+                <text id="Applications" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="56.66" y="31">Applications</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(614.000000, 0.000000)">
+                <rect id="Rectangle" fill="#5A9BD5" x="0" y="0" width="247" height="48"></rect>
+                <text id="Applications" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="56.66" y="31">Applications</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(921.000000, 0.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Applications" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="56.66" y="31">Applications</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(0.000000, 130.000000)">
+                <rect id="Rectangle" fill="#5A9BD5" x="0" y="0" width="247" height="48"></rect>
+                <text id="Security" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="79.22" y="31">Security</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(307.000000, 130.000000)">
+                <rect id="Rectangle" fill="#5A9BD5" x="0" y="0" width="247" height="48"></rect>
+                <text id="Security" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="79.22" y="31">Security</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(0.000000, 65.000000)">
+                <rect id="Rectangle" fill="#5A9BD5" x="0" y="0" width="247" height="48"></rect>
+                <text id="Data" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="97.664" y="31">Data</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(307.000000, 65.000000)">
+                <rect id="Rectangle" fill="#5A9BD5" x="0" y="0" width="247" height="48"></rect>
+                <text id="Data" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="97.664" y="31">Data</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(614.000000, 65.000000)">
+                <rect id="Rectangle" fill="#5A9BD5" x="0" y="0" width="247" height="48"></rect>
+                <text id="Data" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="97.664" y="31">Data</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(0.000000, 195.000000)">
+                <rect id="Rectangle" fill="#5A9BD5" x="0" y="0" width="247" height="48"></rect>
+                <text id="Runtime" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="78.608" y="31">Runtime</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(307.000000, 195.000000)">
+                <rect id="Rectangle" fill="#5A9BD5" x="0" y="0" width="247" height="48"></rect>
+                <text id="Runtime" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="78.608" y="31">Runtime</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(0.000000, 260.000000)">
+                <rect id="Rectangle" fill="#5A9BD5" x="0" y="0" width="247" height="48"></rect>
+                <text id="Middleware" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="60.608" y="31">Middleware</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(0.000000, 325.000000)">
+                <rect id="Rectangle" fill="#5A9BD5" x="0" y="0" width="247" height="48"></rect>
+                <text id="OS" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="106.892" y="31">OS</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(307.000000, 260.000000)">
+                <rect id="Rectangle" fill="#5A9BD5" x="0" y="0" width="247" height="48"></rect>
+                <text id="Middleware" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="60.608" y="31">Middleware</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(307.000000, 325.000000)">
+                <rect id="Rectangle" fill="#5A9BD5" x="0" y="0" width="247" height="48"></rect>
+                <text id="OS" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="106.892" y="31">OS</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(0.000000, 390.000000)">
+                <rect id="Rectangle" fill="#5A9BD5" x="0" y="0" width="247" height="48"></rect>
+                <text id="Virtualisation" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="52.472" y="31">Virtualisation</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(0.000000, 455.000000)">
+                <rect id="Rectangle" fill="#5A9BD5" x="0" y="0" width="247" height="48"></rect>
+                <text id="Servers" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="82.712" y="31">Servers</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(0.000000, 520.000000)">
+                <rect id="Rectangle" fill="#5A9BD5" x="0" y="0" width="247" height="48"></rect>
+                <text id="Storage" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="80.36" y="31">Storage</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(0.000000, 585.000000)">
+                <rect id="Rectangle" fill="#5A9BD5" x="0" y="0" width="247" height="48"></rect>
+                <text id="Networking" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="61.316" y="31">Networking</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(0.000000, 650.000000)">
+                <rect id="Rectangle" fill="#5A9BD5" x="0" y="0" width="247" height="48"></rect>
+                <text id="Data-Centers" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="50.816" y="31">Data Centers</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(307.000000, 390.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Virtualisation" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="52.472" y="31">Virtualisation</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(307.000000, 455.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Servers" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="82.712" y="31">Servers</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(307.000000, 520.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Storage" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="80.36" y="31">Storage</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(307.000000, 585.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Networking" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="61.316" y="31">Networking</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(307.000000, 650.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Data-Centers" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="50.816" y="31">Data Centers</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(614.000000, 130.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Security" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="79.22" y="31">Security</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(614.000000, 195.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Runtime" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="78.608" y="31">Runtime</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(614.000000, 260.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Middleware" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="60.608" y="31">Middleware</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(614.000000, 325.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="OS" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="106.892" y="31">OS</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(614.000000, 390.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Virtualisation" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="52.472" y="31">Virtualisation</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(614.000000, 455.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Servers" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="82.712" y="31">Servers</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(614.000000, 520.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Storage" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="80.36" y="31">Storage</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(614.000000, 585.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Networking" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="61.316" y="31">Networking</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(614.000000, 650.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Data-Centers" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="50.816" y="31">Data Centers</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(921.000000, 130.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Security" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="79.22" y="31">Security</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(921.000000, 65.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Data" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="97.664" y="31">Data</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(921.000000, 195.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Runtime" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="78.608" y="31">Runtime</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(921.000000, 260.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Middleware" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="60.608" y="31">Middleware</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(921.000000, 325.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="OS" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="106.892" y="31">OS</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(921.000000, 390.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Virtualisation" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="52.472" y="31">Virtualisation</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(921.000000, 455.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Servers" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="82.712" y="31">Servers</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(921.000000, 520.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Storage" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="80.36" y="31">Storage</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(921.000000, 585.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Networking" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="61.316" y="31">Networking</tspan>
+                </text>
+            </g>
+            <g id="Group" transform="translate(921.000000, 650.000000)">
+                <rect id="Rectangle" fill="#70AD46" x="0" y="0" width="247" height="48"></rect>
+                <text id="Data-Centers" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#FFFFFF">
+                    <tspan x="50.816" y="31">Data Centers</tspan>
+                </text>
+            </g>
+        </g>
+        <text id="传统IT" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#000000">
+            <tspan x="89.348" y="90">传统IT</tspan>
+        </text>
+        <text id="平台服务-PaaS" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#000000">
+            <tspan x="657.184" y="90">平台服务 PaaS</tspan>
+        </text>
+        <text id="基础服务-IaaS" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#000000">
+            <tspan x="355.092" y="90">基础服务 IaaS</tspan>
+        </text>
+        <text id="软件服务-SaaS" font-family="PingFangSC-Light, PingFang SC" font-size="24" font-weight="300" fill="#000000">
+            <tspan x="964.328" y="90">软件服务 SaaS</tspan>
+        </text>
+        <g id="IaasCases" transform="translate(307.000000, 919.000000)">
+            <rect id="Rectangle-2" fill="#119796" x="0" y="0" width="247" height="406"></rect>
+            <text id="阿里云" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="94" y="48">阿里云</tspan>
+            </text>
+            <text id="腾讯云" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="95" y="89">腾讯云</tspan>
+            </text>
+            <text id="Amazon-AWS" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="62.49" y="130">Amazon AWS</tspan>
+            </text>
+            <text id="Microsoft-Azure" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="51.08" y="171">Microsoft Azure</tspan>
+            </text>
+            <text id="Linode" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="93.2" y="253">Linode</tspan>
+            </text>
+            <text id="DigitalOcean" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="69.03" y="294">DigitalOcean</tspan>
+            </text>
+            <text id="华为云" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="97.5" y="335">华为云</tspan>
+            </text>
+            <text id="Rackspace" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="78.23" y="376">Rackspace</tspan>
+            </text>
+            <text id="Google-Compute-Engin" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="12.12" y="212">Google Compute Engine</tspan>
+            </text>
+        </g>
+        <g id="PaasCases" transform="translate(614.000000, 919.000000)">
+            <rect id="Rectangle-2" fill="#119796" x="0" y="0" width="247" height="406"></rect>
+            <text id="AWS-Elastic-Beanstal" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="20.62" y="48">AWS Elastic Beanstalk</tspan>
+            </text>
+            <text id="Windows-Azure" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="54.93" y="89">Windows Azure</tspan>
+            </text>
+            <text id="Heroku" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="91.41" y="130">Heroku</tspan>
+            </text>
+            <text id="Force.com" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="75.9" y="171">Force.com</tspan>
+            </text>
+            <text id="Apache-Stratos" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="53.57" y="253">Apache Stratos</tspan>
+            </text>
+            <text id="OpenShift" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="81.84" y="294">OpenShift</tspan>
+            </text>
+            <text id="Google-App-Engine" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="35.79" y="212">Google App Engine</tspan>
+            </text>
+        </g>
+        <g id="SaasCases" transform="translate(921.000000, 919.000000)">
+            <rect id="Rectangle-2" fill="#119796" x="0" y="0" width="247" height="406"></rect>
+            <text id="Google-Apps" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="65.23" y="48">Google Apps</tspan>
+            </text>
+            <text id="Dropbox" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="86.41" y="89">Dropbox</tspan>
+            </text>
+            <text id="Salesforce" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="75.67" y="130">Salesforce</tspan>
+            </text>
+            <text id="Cisco-WebEx" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="63.19" y="171">Cisco WebEx</tspan>
+            </text>
+            <text id="Gmail" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="97.97" y="253">Gmail</tspan>
+            </text>
+            <text id="Office-365" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="78.57" y="294">Office 365</tspan>
+            </text>
+            <text id="Google-Docs" font-family="PingFangSC-Light, PingFang SC" font-size="20" font-weight="300" fill="#FFFFFF">
+                <tspan x="65.05" y="212">Google Docs</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
