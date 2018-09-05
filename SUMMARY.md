@@ -22,7 +22,7 @@
 * [12 码里码外](out-of-box.md)
   * [12.1 茶](out-of-box/tea.md)
 * [13 当我编码时, 我在谈些什么](talks.md)
-  * [13.1 茶](talks/iot.md)
+  * [13.1 物联网/IoT](talks/iot.md)
   * [13.2 IaaS, PaaS, SaaS](talks/ipsaas.md)
 * [14 GitHub](github.md)
 * [15 用 Gitbook 写此书](gitbook-howto.md)

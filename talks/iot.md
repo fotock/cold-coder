@@ -1,4 +1,4 @@
-# IoT
+# 物联网/Internet of Things
 
 ## 低功耗无线技术对比
 
