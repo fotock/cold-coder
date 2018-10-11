@@ -130,7 +130,7 @@ proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 该配置可在证书安全评测网站 https://myssl.com 和 https://www.ssllabs.com/ssltest 获得最高级 A+ 评级。
 ```nginx
 ssl on;
-ssl_protocols  TLSv1 TLSv1.1 TLSv1.2;
+ssl_protocols  TLSv1.2;
 
 ssl_certificate          /web/soft/nginx/ssl/abc.com.crt;
 ssl_certificate_key      /web/soft/nginx/ssl/abc.com.key;
@@ -140,17 +140,17 @@ ssl_session_cache shared:SSL:80m;
 ssl_session_timeout 24h;
 ssl_session_tickets off;
 
-ssl_ciphers "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE+ECDSA+SHA512:ECDHE+ECDSA+SHA384:ECDHE+ECDSA+SHA256:AES256+ECDHE:!EXPORT:!aNULL:!eNULL:!LOW:!RC4:!DES:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS";
+ssl_ciphers ECDHE-PSK:ECDHE-ECDSA:ECDHE-RSA:ECDH:AES:HIGH:!NULL:!aNULL:!EXPORT:!CAMELLIA:!MD5:!PSK:!ADH:!RC4:!DH:!DHE;
 ssl_prefer_server_ciphers on;
 
 ssl_stapling on;
 ssl_stapling_verify on;
 
-# 证书链完整验证. Root CA 和 Intermediate 证书
+# (可选. 可合并至.crt文件里)证书链完整验证. Root CA 和 Intermediate 证书
 ssl_trusted_certificate /web/soft/nginx/ssl/abc.com.ca-intermediates;
 
 # 获得A+评级必不可少. 15768000 = 6个月
-add_header Strict-Transport-Security "max-age=15768000; includeSubdomains";
+add_header Strict-Transport-Security "max-age=15768000; includeSubdomains" always;
 ```
 
 #### 说明
