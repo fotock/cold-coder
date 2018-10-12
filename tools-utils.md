@@ -20,3 +20,5 @@ https://live.amcharts.com/new
 ## 国家/世界SVG地图下载
 https://pixelmap.amcharts.com
 
+## 廉价代理服务器列表
+http://www.cheapvpslist.com
