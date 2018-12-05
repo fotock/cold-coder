@@ -8,6 +8,9 @@ chmod +x shadowsocks-libev.sh
 ```
 
 ### 使用插件启动:
+
+原网页: https://github.com/shadowsocks/simple-obfs
+
 #### 安装 simple obfs
 ```bash
 yum install gcc autoconf libtool automake make zlib-devel openssl-devel asciidoc xmlto
