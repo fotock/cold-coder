@@ -58,8 +58,8 @@ for i in `ls`; do du -sh $i; done | sort
 ## 各目录用量
 ```
 112G	Users
- 25G	Applications
- 15G	private
+25G	Applications
+15G	private
 9.4G	Library
 9.6G	System
 3.3G	usr
@@ -71,9 +71,9 @@ for i in `ls`; do du -sh $i; done | sort
 1.0K	net
 1.2M	sbin
 8.0K	Volumes
-  0B	Network
-  0B	etc
-  0B	tmp
-  0B	var
+0B	Network
+0B	etc
+0B	tmp
+0B	var
 ```
 

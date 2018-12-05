@@ -68,7 +68,7 @@ https://your.ip.address:943/admin
 
 
 
-## 防火墙规则配置
+## 防火墙规则配置 (可选项)
 
 参考配置: https://www.linode.com/docs/networking/vpn/set-up-a-hardened-openvpn-server
 

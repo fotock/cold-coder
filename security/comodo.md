@@ -59,12 +59,12 @@ SSLCertificateChainFile /path/to/domainname.ca
 ## IIS 部署
 需要转化成 .p7b 文件的话.
 
-1. 有openssl的，可使用下面的命令:
+1. 有openssl的，可使用下面的命令 (缺的证书可以去掉响应行):
 ```bash
 openssl crl2pkcs7 -nocrl \
 -certfile your_domain_com.crt \
--certfile AddTrustExternalCARoot.crt \
--certfile COMODORSAAddTrustCA.crt \
+-certfile AddTrust_External_CA_Root.crt \
+-certfile COMODO_RSA_Certification_Authority.crt.crt \
 -certfile COMODORSADomainValidationSecureServerCA.crt \
 -out your_domain_com.p7b
 ```
