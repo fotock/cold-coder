@@ -253,8 +253,7 @@ server {
 阿里云ECS，双核 Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz
 ab 与 nginx 在同机进行测试。34737个请求每秒是几次结果中较高的值。
 
-<br>
-结果（较好值)
+#### 结果（较好值)
 ```
 Server Software:        nginx/1.12.2
 Server Hostname:        127.0.0.1
