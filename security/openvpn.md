@@ -1,6 +1,7 @@
 # OpenVPN
 
 ## 软件特点
+
 - 用于创建加密通道，允许创建的VPN使用公开密钥、电子证书、或者用户名／密码来进行身份验证。
 - 大量使用了OpenSSL加密库中的SSLv3/TLSv1协议函数库。
 - 能在Mac OS X与Windows、Solaris、Linux、OpenBSD、FreeBSD以及Android和iOS上运行，并包含了许多安全性的功能。
@@ -9,6 +10,7 @@
 
 
 ## 同类软件对比
+
 |   类型   |   PPTP   |    L2TP/IPSec     |   OpenVPN         |
 |---|---|---|---|---|---|
 | 加密长度 |   128位   |   256位   |   160位， 256位   |
@@ -26,7 +28,7 @@
 
 在线向导： https://openvpn.net/quick-start-guide
 
-1. 下载安装对应操作系统(Ubuntu, Debian, Redhat, CentOS)的安装库文件
+### 1. 下载安装对应操作系统(Ubuntu, Debian, Redhat, CentOS)的安装库文件
 
 ```bash
 wget http://swupdate.openvpn.org/as/openvpn-as-2.5.2-CentOS7.x86_64.rpm
@@ -34,7 +36,7 @@ yum install -y net-tools
 rpm -i openvpn-as-*.rpm
 ```
 
-2. 设置管理界面的用户的登录密码
+### 2. 设置管理界面的用户的登录密码
 
 ```bash
 passwd openvpn
@@ -58,12 +60,15 @@ https://your.ip.address:943/admin
 页面所有配置项仅把 TLS 1.2 设置为 On.
 
 #### Network Settings
+
 - Port number 可以修改.
 
 #### Advanced VPN
+
 - Connection Security Refresh: 可以更新为较短的时间，如 120 分钟.
 
 #### Client Settings
+
 - Customize Client Web Server UI: 关闭不需要的项.
 
 
@@ -72,7 +77,7 @@ https://your.ip.address:943/admin
 
 参考配置: https://www.linode.com/docs/networking/vpn/set-up-a-hardened-openvpn-server
 
-#### /etc/iptables/rules.v4
+### /etc/iptables/rules.v4
 
 ```conf
 *filter
@@ -141,5 +146,3 @@ COMMIT
 iptables-restore < /etc/iptables/rules.v4
 ip6tables-restore < /etc/iptables/rules.v6
 ```
-
-
