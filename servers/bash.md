@@ -64,3 +64,9 @@ tcpdump -i eth1 -n "dst host 127.0.0.1 and greater 120" -X
 ps aux | awk '{printf "%-6s %3s  %s %s\n", $2, $4, $11, $12}' | sort -k2rn | head -n 10
 ```
 
+- 端口 port 开关控制 (tcp/udp)
+
+```bash
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+firewall-cmd --reload
+```
