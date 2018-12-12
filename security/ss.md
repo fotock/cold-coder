@@ -1,4 +1,4 @@
-# ss
+# Shadowsocks
 
 ## Shadowsocks-libev 版安装
 
