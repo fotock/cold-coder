@@ -1,7 +1,12 @@
 # 人工智能
 
-## 分支
+## 资源站
+- [GitHub: AiLearning](https://github.com/apachecn/AiLearning)
+- [阿里: 天池](https://tianchi.aliyun.com)
+- [Towards Data Science](https://towardsdatascience.com)
+- [GitHub: awesome-machine-learning](https://github.com/josephmisiti/awesome-machine-learning)
 
+## 分支
 
 
 ## 机器学习
@@ -9,6 +14,8 @@
 <img src="/assets/tesla-self-driving-overlay.jpg" alt="" width="100%" />
 <img src="/assets/ml-process.jpg" alt="" width="100%" />
 (来源: [r2d3.us](http://www.r2d3.us/talks/design-in-a-world-where-machines-are-learning) )
+
+“哈佛商业评论”（Harvard Business Review）的文章将“数据科学家”称为“21世纪最性感的工作”。
 
 天下没有免费的午餐。
 
