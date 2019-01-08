@@ -1,6 +1,6 @@
 # 服务器端
 
-> 
+>
 > “我们鼓励你养成一个程序猿的三大美德: 懒惰、性急、傲娇。”
 >
 > Larry Wall, Perl 之父
@@ -13,13 +13,13 @@
 4. 语言: Java, PHP, Bash, Node JS
 5. 监控: Netdata, vnstat
 6. 编辑器: Vim
-7. 其他常用bash命令: 
+7. 其他常用bash命令:
     - find
-    - grep 
+    - grep
     - sed
-    - awk 
-    - top 
-    - iftop 
+    - awk
+    - top
+    - iftop
     - tar
     - tcpdump
 

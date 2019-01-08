@@ -1,10 +1,12 @@
 # Nginx
 
 ## 请求处理流
+
 <img src="/assets/nginx-request-flow.png" alt="">
 
 
 ## 编译配置
+
 ```bash
 ./configure --with-threads \
  --with-pcre \
@@ -28,6 +30,7 @@
 
 
 ## 目录结构
+
 ```
 sbin
   \_ nginx
@@ -101,6 +104,7 @@ http {
 ```
 
 ## 代理参数配置: conf.d/_proxy.conf
+
 ```nginx
 proxy_connect_timeout 300;
 proxy_send_timeout 300;
@@ -127,7 +131,9 @@ proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 ```
 
 ## SSL 参数配置 (conf.d/_ssl.conf)
+
 该配置可在证书安全评测网站 https://myssl.com 和 https://www.ssllabs.com/ssltest 获得最高级 A+ 评级。
+
 ```nginx
 ssl on;
 ssl_protocols  TLSv1.2;
@@ -156,6 +162,7 @@ add_header Strict-Transport-Security "max-age=15768000; includeSubdomains" alway
 #### 说明
 
 第1. 关于 DH params, 可以生成4096位的。嫌麻烦，干脆禁用它。
+
 ```bash
 cd /etc/ssl/certs
 openssl dhparam -out dhparam.pem 4096
@@ -164,7 +171,9 @@ openssl dhparam -out dhparam.pem 4096
 ```nginx
 ssl_dhparam /etc/ssl/certs/dhparam.pem;
 ```
+
 第2. DNS解析. 就国内来说, 也可以加个你信任的.
+
 ```nginx
 # resolver <你的 DNS 服务器 IP>;
 ```
@@ -174,6 +183,7 @@ https://mozilla.github.io/server-side-tls/ssl-config-generator
 
 
 ## PHP-FPM 站点配置示例 site-php-fpm.conf
+
 ```nginx
 server {
     listen 80 default_server;
@@ -198,6 +208,7 @@ server {
 ```
 
 ## 代理站点配置 site-proxy.conf
+
 ```nginx
 upstream upstream {
     keepalive 100;
@@ -219,6 +230,7 @@ server {
 ```
 
 ## 启用 SSL 代理站点配置 site-ssl-proxy.conf
+
 ```nginx
 upstream upstreamssl {
     keepalive 100;
@@ -249,11 +261,13 @@ server {
 
 
 ## 性能测试 (ApacheBench)
+
 环境:
 阿里云ECS，双核 Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz
 ab 与 nginx 在同机进行测试。34737个请求每秒是几次结果中较高的值。
 
-#### 结果（较好值)
+### 结果（较好值)
+
 ```
 Server Software:        nginx/1.12.2
 Server Hostname:        127.0.0.1

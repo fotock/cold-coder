@@ -2,11 +2,15 @@
 
 
 ## 常用配置
-### Xcode 垃圾清理1:
+
+### Xcode 垃圾清理1
+
 ```bash
 cd ~/Library/Developer/Xcode/iOS DeviceSupport
 ```
-### Xcode 垃圾清理2:
+
+### Xcode 垃圾清理2
+
 ```bash
 cd ~/Library/Developer/CoreSimulator/Devices
 for i in `ls`; do du -sh $i; done | sort
@@ -14,6 +18,7 @@ for i in `ls`; do du -sh $i; done | sort
 
 
 ## 软件列表
+
 - Adobe Illustrator
 - Adobe Lightroom
 - Android Studio

@@ -1,6 +1,7 @@
 # Bash
 
 ## 终端颜色处理
+
 ```bash
 for code in {30..37}; do \
 echo -en "\e[${code}m"'\\e['"$code"'m'"\e[0m"; \
@@ -10,12 +11,14 @@ echo -en "  \e[$code;4m"'\\e['"$code"';4m'"\e[0m"; \
 echo -e "  \e[$((code+60))m"'\\e['"$((code+60))"'m'"\e[0m"; \
 done
 ```
+
 <img src="/assets/bash_colors.png" alt="" width="220">
 
 更多信息: http://jafrog.com/2013/11/23/colors-in-terminal.html
 
 
 ## 捕捉 Ctrl + C 并 结束后台进程
+
 ```bash
 #! /bin/bash
 
