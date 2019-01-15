@@ -25,5 +25,3 @@ https://aws.amazon.com
 买 Reserved Instance 相当于年付。
 
 买同地区的同规格的 Reserved Instance 服务器，不启动实例的话，它可以cover其他实例的费用。
-
-

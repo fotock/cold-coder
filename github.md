@@ -1,18 +1,22 @@
 # GitHub
+
 GitHub 好地方。好地方有好风光。
 
 ## 一些统计数据
+
 https://gitstar-ranking.com
 
-
 ## GraphQL
+
 第4版 API 使用了 GraphQL，取代了之前的 REST API, 功能及灵活性上更强。
 
 1. 查询示例中。 `after` 某个 cursor 可用于分页。
 2. 截至 18年3月15日，暂时不支持查询 Repository 的 Contributers, 除非你已参与该 Repository。
 
 - Repository 搜索
+
 1. 库总数
+
 ```graphql
 {
   search(type: REPOSITORY, query: "stars:<1000000", first: 1) {
@@ -22,6 +26,7 @@ https://gitstar-ranking.com
 ```
 
 2. 查询最多关注的库
+
 ```graphql
 {
   search(type: REPOSITORY, query: "stars:>8000", first: 10, after: "Y3Vyc29yOjQ=") {
@@ -76,8 +81,8 @@ https://gitstar-ranking.com
 }
 ```
 
-
 3. 查询用户/机构的库
+
 ```graphql
 {
   search(type: REPOSITORY, query: "user:google sort:stars-desc", first: 100) {
@@ -100,6 +105,7 @@ https://gitstar-ranking.com
 - User 搜索
 
 1. 用户总数
+
 ```graphql
 {
   search(type: USER, query: "followers:<1000000", first: 40) {
@@ -109,6 +115,7 @@ https://gitstar-ranking.com
 ```
 
 2. 最受关注用户
+
 ```graphql
 {
   search(type: USER, query: "followers:>5000", first: 100) {

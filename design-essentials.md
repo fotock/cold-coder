@@ -1,6 +1,23 @@
 # 设计基础
 
+## 颜色设计理论
+
+### Adobe Color Wheel
+
+<img src="/assets/adobe-color-wheel.png" alt="" width="220">
+
+支持颜色轮盘和图片导入。 https://color.adobe.com/create/color-wheel
+
+### PALETTON
+
+颜色模式调整。 http://paletton.com
+
+### Material Design Colors
+
+支持色块，图标，颜色模式。https://www.materialpalette.com
+
 ## 设计软件
+
 - __Adobe PS__
 
   图片处理
@@ -19,6 +36,7 @@
 
 
 ## 图标库
+
 - FlatIcon
 
   https://flaticon.com
@@ -31,8 +49,8 @@
 
   https://app.fontastic.me
 
-
 ## 其他
+
 - Material 设计
 
   https://material.io/guidelines/material-design
