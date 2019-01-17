@@ -2,6 +2,8 @@
 
 ## 路线图
 
+https://github.com/togiberlin/ui-ux-designer-roadmap
+
 ## 颜色设计理论
 
 ### Adobe Color Wheel
@@ -17,7 +19,7 @@
 ### Material Design Colors
 
 支持色块，图标，颜色模式。https://www.materialpalette.com
-v
+
 ## 设计软件
 
 - __Adobe PS__
