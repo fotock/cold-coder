@@ -1,5 +1,9 @@
 # Shadowsocks
 
+## 免费SS服务器列表
+
+- https://shadowsockser.com/free-shadowsocks-server-list
+
 ## Shadowsocks-libev 版安装
 
 ```bash
