@@ -47,6 +47,6 @@ Mac: https://github.com/yanue/V2rayU
 
 ## TSL+域名+证书版
 
-不好用
+不稳定。
 
 
