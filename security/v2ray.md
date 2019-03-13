@@ -3,6 +3,8 @@
 ## 一键安装
 
 ```bash
+#!/bin/bash
+
 bash <(curl -L -s https://install.direct/go.sh)
 
 TMP_UUID=`uuidgen -r`
