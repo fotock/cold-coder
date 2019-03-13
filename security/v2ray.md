@@ -43,3 +43,8 @@ Android: https://github.com/2dust/v2rayNG
 
 Mac: https://github.com/yanue/V2rayU
 
+## TSL+域名+证书版
+
+不好用
+
+
