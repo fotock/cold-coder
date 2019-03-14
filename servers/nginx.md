@@ -259,7 +259,7 @@ server {
 }
 ```
 
-### 9.1 示例 Reverse Proxy to Google
+### 8.1 示例 Reverse Proxy to Google
 
 #### A. 一般配置
 
@@ -326,13 +326,13 @@ server {
 }
 ```
 
-## 10. 性能测试 (ApacheBench)
+## 9. 性能测试 (ApacheBench)
 
 环境:
 阿里云ECS，双核 Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz
 ab 与 nginx 在同机进行测试。34737个请求每秒是几次结果中较高的值。
 
-### 11. 结果（较好值)
+### 10. 结果（较好值)
 
 ```
 Server Software:        nginx/1.12.2
