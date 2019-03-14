@@ -182,7 +182,7 @@ ssl_dhparam /etc/ssl/certs/dhparam.pem;
 https://mozilla.github.io/server-side-tls/ssl-config-generator
 
 
-## PHP-FPM 站点配置示例 site-php-fpm.conf
+## 6. PHP-FPM 站点配置示例 site-php-fpm.conf
 
 ```nginx
 server {
@@ -207,7 +207,7 @@ server {
 }
 ```
 
-## 6. 代理站点配置 site-proxy.conf
+## 7. 代理站点配置 site-proxy.conf
 
 ```nginx
 upstream upstream {
@@ -229,7 +229,7 @@ server {
 }
 ```
 
-## 7. 启用 SSL 代理站点配置 site-ssl-proxy.conf
+## 8. 启用 SSL 代理站点配置 site-ssl-proxy.conf
 
 ```nginx
 upstream upstreamssl {
@@ -259,7 +259,7 @@ server {
 }
 ```
 
-### 7.1 示例 Reverse Proxy to Google
+### 9.1 示例 Reverse Proxy to Google
 
 #### A. 一般配置
 
@@ -326,13 +326,13 @@ server {
 }
 ```
 
-## 8. 性能测试 (ApacheBench)
+## 10. 性能测试 (ApacheBench)
 
 环境:
 阿里云ECS，双核 Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz
 ab 与 nginx 在同机进行测试。34737个请求每秒是几次结果中较高的值。
 
-### 9. 结果（较好值)
+### 11. 结果（较好值)
 
 ```
 Server Software:        nginx/1.12.2
