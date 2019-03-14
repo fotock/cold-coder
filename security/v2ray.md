@@ -51,7 +51,7 @@ Mac: https://github.com/yanue/V2rayU
 
 示例配置:
 
-<img src="/assets/v2rayu_tls.png" alt="" width="400">
+<img src="/assets/v2rayu_tls.png" alt="" style="width:100%; max-width:400px">
 
 
 
