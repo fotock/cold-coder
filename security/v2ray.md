@@ -49,4 +49,9 @@ Mac: https://github.com/yanue/V2rayU
 
 不稳定。
 
+示例配置:
+
+<img src="/assets/v2rayu_tls.png" alt="" width="400">
+
+
 
