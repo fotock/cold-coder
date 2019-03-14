@@ -5,7 +5,7 @@
 <img src="/assets/nginx-request-flow.png" alt="">
 
 
-## 编译配置
+## 1. 编译配置
 
 ```bash
 ./configure --with-threads \
@@ -29,7 +29,7 @@
 ```
 
 
-## 目录结构
+## 2. 目录结构
 
 ```
 sbin
@@ -47,7 +47,7 @@ conf
        \_ site-abc.com.conf
 ```
 
-## 配置示例: nginx.conf
+## 3. 配置示例: nginx.conf
 
 ```nginx
 user  www www;
@@ -103,7 +103,7 @@ http {
 }
 ```
 
-## 代理参数配置: conf.d/_proxy.conf
+## 4. 代理参数配置: conf.d/_proxy.conf
 
 ```nginx
 proxy_connect_timeout 300;
@@ -130,7 +130,7 @@ proxy_set_header X-Real-IP $remote_addr;
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 ```
 
-## SSL 参数配置 (conf.d/_ssl.conf)
+## 5. SSL 参数配置 (conf.d/_ssl.conf)
 
 该配置可在证书安全评测网站 https://myssl.com 和 https://www.ssllabs.com/ssltest 获得最高级 A+ 评级。
 
@@ -207,7 +207,7 @@ server {
 }
 ```
 
-## 代理站点配置 site-proxy.conf
+## 6. 代理站点配置 site-proxy.conf
 
 ```nginx
 upstream upstream {
@@ -229,7 +229,7 @@ server {
 }
 ```
 
-## 启用 SSL 代理站点配置 site-ssl-proxy.conf
+## 7. 启用 SSL 代理站点配置 site-ssl-proxy.conf
 
 ```nginx
 upstream upstreamssl {
@@ -259,9 +259,9 @@ server {
 }
 ```
 
-### 示例 Reverse Proxy to Google
+### 7.1 示例 Reverse Proxy to Google
 
-#### 一般配置
+#### A. 一般配置
 
 ```nginx
 server {
@@ -288,7 +288,7 @@ server {
 OK, type in your domain name on the browser, you can access Google now, even in `China`.
 
 
-#### 支持 SSL 的配置
+#### B. 支持 SSL 的配置
 
 ```nginx
 server {
@@ -326,13 +326,13 @@ server {
 }
 ```
 
-## 性能测试 (ApacheBench)
+## 8. 性能测试 (ApacheBench)
 
 环境:
 阿里云ECS，双核 Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz
 ab 与 nginx 在同机进行测试。34737个请求每秒是几次结果中较高的值。
 
-### 结果（较好值)
+### 9. 结果（较好值)
 
 ```
 Server Software:        nginx/1.12.2
