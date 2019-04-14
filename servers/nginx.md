@@ -5,7 +5,7 @@
 <img src="/assets/nginx-request-flow.png" alt="">
 
 
-## 编译配置
+## 1. 编译配置
 
 ```bash
 ./configure --with-threads \
@@ -29,7 +29,7 @@
 ```
 
 
-## 目录结构
+## 2. 目录结构
 
 ```
 sbin
@@ -47,7 +47,7 @@ conf
        \_ site-abc.com.conf
 ```
 
-## 配置示例: nginx.conf
+## 3. 配置示例: nginx.conf
 
 ```nginx
 user  www www;
@@ -103,7 +103,7 @@ http {
 }
 ```
 
-## 代理参数配置: conf.d/_proxy.conf
+## 4. 代理参数配置: conf.d/_proxy.conf
 
 ```nginx
 proxy_connect_timeout 300;
@@ -130,7 +130,7 @@ proxy_set_header X-Real-IP $remote_addr;
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 ```
 
-## SSL 参数配置 (conf.d/_ssl.conf)
+## 5. SSL 参数配置 (conf.d/_ssl.conf)
 
 该配置可在证书安全评测网站 https://myssl.com 和 https://www.ssllabs.com/ssltest 获得最高级 A+ 评级。
 
@@ -182,7 +182,7 @@ ssl_dhparam /etc/ssl/certs/dhparam.pem;
 https://mozilla.github.io/server-side-tls/ssl-config-generator
 
 
-## PHP-FPM 站点配置示例 site-php-fpm.conf
+## 6. PHP-FPM 站点配置示例 site-php-fpm.conf
 
 ```nginx
 server {
@@ -207,7 +207,7 @@ server {
 }
 ```
 
-## 代理站点配置 site-proxy.conf
+## 7. 代理站点配置 site-proxy.conf
 
 ```nginx
 upstream upstream {
@@ -229,7 +229,7 @@ server {
 }
 ```
 
-## 启用 SSL 代理站点配置 site-ssl-proxy.conf
+## 8. 启用 SSL 代理站点配置 site-ssl-proxy.conf
 
 ```nginx
 upstream upstreamssl {
@@ -259,14 +259,80 @@ server {
 }
 ```
 
+### 8.1 示例 Reverse Proxy to Google
 
-## 性能测试 (ApacheBench)
+#### A. 一般配置
+
+```nginx
+server {
+    listen 80;
+    server_name example.com;
+
+    location / {
+        proxy_pass https://www.google.com;
+        proxy_set_header Host www.google.com;
+        proxy_set_header Referer https://www.google.com;
+
+        proxy_set_header User-Agent $http_user_agent;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header Accept-Encoding "";
+        proxy_set_header Accept-Language $http_accept_language;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        sub_filter google.com example.com;
+        sub_filter_once off;
+    }
+}
+```
+
+OK, type in your domain name on the browser, you can access Google now, even in `China`.
+
+
+#### B. 支持 SSL 的配置
+
+```nginx
+server {
+    listen 80;
+    server_name example.com;
+    location / {
+        rewrite ^/(.*)$ https://$host$1 permanent;
+    }
+}
+
+server {
+    listen 443 ssl;
+    server_name example.com;
+
+    ssl_certificate      /etc/ssl/example.crt;
+    ssl_certificate_key  /etc/ssl/example.key;
+
+    ssl_session_cache    shared:SSL:1m;
+    ssl_session_timeout  5m;
+
+    location / {
+        proxy_pass https://www.google.com;
+        proxy_set_header Host www.google.com;
+        proxy_set_header Referer https://www.google.com;
+
+        proxy_set_header User-Agent $http_user_agent;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header Accept-Encoding "";
+        proxy_set_header Accept-Language $http_accept_language;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        sub_filter google.com example.com;
+        sub_filter_once off;
+    }
+}
+```
+
+## 9. 性能测试 (ApacheBench)
 
 环境:
 阿里云ECS，双核 Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz
 ab 与 nginx 在同机进行测试。34737个请求每秒是几次结果中较高的值。
 
-### 结果（较好值)
+### 10. 结果（较好值)
 
 ```
 Server Software:        nginx/1.12.2
