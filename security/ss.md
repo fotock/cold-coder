@@ -19,7 +19,7 @@ chmod +x shadowsocks-libev.sh
 #### 安装 simple obfs
 
 ```bash
-yum install gcc autoconf libtool automake make zlib-devel openssl-devel asciidoc xmlto
+yum install -y gcc autoconf libtool automake make zlib-devel openssl-devel asciidoc xmlto
 
 git clone https://github.com/shadowsocks/simple-obfs.git
 cd simple-obfs
@@ -32,7 +32,8 @@ make install
 启动
 
 ```bash
-ss-server -c /etc/shadowsocks-libev/config.json --plugin obfs-server --plugin-opts "obfs=http" &
+systemctl start shadowsocks
+#ss-server -c /etc/shadowsocks-libev/config.json --plugin obfs-server --plugin-opts "obfs=tls" &
 ```
 
 ### 卸载
