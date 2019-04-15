@@ -35,6 +35,9 @@ firewall-cmd --zone=public --add-port=60007/tcp --permanent
 firewall-cmd --reload
 service v2ray restart
 service v2ray status
+
+# 自动启动
+systemctl enable v2ray
 ```
 
 ## 参考资料
@@ -55,3 +58,18 @@ Mac: https://github.com/yanue/V2rayU
 
 
 
+## 与BBR Plus结合
+
+增强网络速度.
+
+主要解决：BBR在高丢包率下易失速以及BBR收敛慢的问题。
+
+本脚本只支持KVM不支持ovz
+CentOS一键安装脚本（自动安装内核并启用）：
+
+```bash
+wget "https://github.com/cx9208/bbrplus/raw/master/ok_bbrplus_centos.sh" && chmod +x ok_bbrplus_centos.sh && ./ok_bbrplus_centos.sh
+```
+
+安装后，执行uname -r，显示4.14.90则切换内核成功.
+执行lsmod | grep bbr，显示有bbrplus则开启成功.
