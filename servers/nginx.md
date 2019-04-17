@@ -354,3 +354,9 @@ Time per request:       5.756 [ms] (mean)
 Time per request:       0.029 [ms] (mean, across all concurrent requests)
 Transfer rate:          133493.06 [Kbytes/sec] received
 ```
+
+## acme 自动安装证书
+
+```bash
+.acme.sh/acme.sh --issue --debug -d domain.com -w nginx:/web/soft/nginx/conf/conf.d/domain.com.conf
+```
