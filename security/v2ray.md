@@ -13,6 +13,7 @@ cat <<EOT > /etc/v2ray/config.json
 {
   "inbounds": [{
     "port": 60007,
+    "listen": "127.0.0.1",
     "protocol": "vmess",
     "settings": {
       "clients": [{ 
@@ -30,9 +31,11 @@ cat <<EOT > /etc/v2ray/config.json
 }
 EOT
 
+# 直接对公网的话。用代理的话不用
 firewall-cmd --zone=public --add-port=60007/udp --permanent
 firewall-cmd --zone=public --add-port=60007/tcp --permanent
 firewall-cmd --reload
+
 service v2ray restart
 service v2ray status
 
@@ -44,7 +47,7 @@ systemctl enable v2ray
 
 官网: https://www.v2ray.com
 
-Android: https://github.com/2dust/v2rayNG
+Android: BifrostV
 
 Mac: https://github.com/yanue/V2rayU
 
