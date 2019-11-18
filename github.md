@@ -170,3 +170,14 @@ https://gitstar-ranking.com
   }
 }
 ```
+
+## Excellent Repositories
+
+### [streisand](https://github.com/StreisandEffect/streisand)
+
+#### Valid connections
+
+- openconnect-cli (Mac)
+- ss (Mac)
+- AnyConnect (Android)
+- WireGuard (Android)
