@@ -1,4 +1,6 @@
-## Generate user info:
+# Secure Internet
+
+## Generate user info
 
 https://www.fakenamegenerator.com
 
@@ -10,7 +12,8 @@ OpenVPN
 
 TOR > Chromium
 
-### Chromium extensions:
+### Chromium extensions
+
 - uBlock Origin
 - HTTPS Everywhere
 - FlashControl
