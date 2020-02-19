@@ -73,3 +73,5 @@ wget "https://github.com/cx9208/bbrplus/raw/master/ok_bbrplus_centos.sh" && chmo
 
 安装后，执行uname -r，显示4.14.90则切换内核成功.
 执行lsmod | grep bbr，显示有bbrplus则开启成功.
+
+## 推荐直接一键安装streisand
