@@ -75,3 +75,5 @@ wget "https://github.com/cx9208/bbrplus/raw/master/ok_bbrplus_centos.sh" && chmo
 执行lsmod | grep bbr，显示有bbrplus则开启成功.
 
 ## 推荐直接一键安装streisand
+
+DNS-over-HTTPS (cloudfare) 要禁用。Linode目前不支持。 (2020-03-16)
