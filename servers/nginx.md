@@ -326,13 +326,41 @@ server {
 }
 ```
 
-## 9. 性能测试 (ApacheBench)
+## 9. 防SQL/文件入注等
+
+```nginx
+location ~* "(eval\()"  { deny all; }
+location ~* "(127\.0\.0\.1)"  { deny all; }
+location ~* "([a-z0-9]{2000})"  { deny all; }
+location ~* "(javascript\:)(.*)(\;)"  { deny all; }
+location ~* "(base64_encode)(.*)(\()"  { deny all; }
+location ~* "(GLOBALS|REQUEST)(=|\[|%)"  { deny all; }
+location ~* "(<|%3C).*script.*(>|%3)" { deny all; }
+location ~ "(\\|\.\.\.|\.\./|~|`|<|>|\|)" { deny all; }
+location ~* "(boot\.ini|etc/passwd|self/environ)" { deny all; }
+location ~* "(thumbs?(_editor|open)?|tim(thumb)?)\.php" { deny all; }
+location ~* "(\'|\")(.*)(drop|insert|md5|select|union)" { deny all; }
+location ~* "(https?|ftp|php):/" { deny all; }
+location ~* "(=\\\'|=\\%27|/\\\'/?)\." { deny all; }
+location ~* "/(\$(\&)?|\*|\"|\.|,|&|&amp;?)/?$" { deny all; }
+location ~ "(\{0\}|\(/\(|\.\.\.|\+\+\+|\\\"\\\")" { deny all; }
+location ~ "(~|`|<|>|:|;|%|\\|\s|\{|\}|\[|\]|\|)" { deny all; }
+location ~* "/(=|\$&|_mm|(wp-)?config\.|cgi-|etc/passwd|muieblack)" { deny all; }
+location ~* "(&pws=0|_vti_|\(null\)|\{\$itemURL\}|echo(.*)kae|etc/passwd|eval\(|self/environ)" { deny all; }
+location ~*  "/(^$|readme|license|example|README|LEGALNOTICE|INSTALLATION|CHANGELOG)\.(txt|html|md)" { deny all; }
+location ~* "\.(aspx?|bash|bak?|cfg|cgi|php~|dll|exe|git|hg|ini|jsp|log|mdb|out|sql|svn|swp|tar|rdf)$" { deny all; }
+location ~* "/(^$|mobiquo|phpinfo|shell|sqlpatch|thumb|thumb_editor|thumbopen|timthumb|webshell)\.php" { deny all; }
+
+```
+
+
+## 10. 性能测试 (ApacheBench)
 
 环境:
 阿里云ECS，双核 Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz
 ab 与 nginx 在同机进行测试。34737个请求每秒是几次结果中较高的值。
 
-### 10. 结果（较好值)
+### 11. 结果（较好值)
 
 ```
 Server Software:        nginx/1.12.2
