@@ -337,19 +337,69 @@ location ~* "(base64_encode)(.*)(\()"  { deny all; }
 location ~* "(GLOBALS|REQUEST)(=|\[|%)"  { deny all; }
 location ~* "(<|%3C).*script.*(>|%3)" { deny all; }
 location ~ "(\\|\.\.\.|\.\./|~|`|<|>|\|)" { deny all; }
+location ~ "(\{0\}|\(/\(|\.\.\.|\+\+\+|\\\"\\\")" { deny all; }
+location ~ "(~|`|<|>|:|;|%|\\|\s|\{|\}|\[|\]|\|)" { deny all; }
 location ~* "(boot\.ini|etc/passwd|self/environ)" { deny all; }
 location ~* "(thumbs?(_editor|open)?|tim(thumb)?)\.php" { deny all; }
 location ~* "(\'|\")(.*)(drop|insert|md5|select|union)" { deny all; }
 location ~* "(https?|ftp|php):/" { deny all; }
 location ~* "(=\\\'|=\\%27|/\\\'/?)\." { deny all; }
 location ~* "/(\$(\&)?|\*|\"|\.|,|&|&amp;?)/?$" { deny all; }
-location ~ "(\{0\}|\(/\(|\.\.\.|\+\+\+|\\\"\\\")" { deny all; }
-location ~ "(~|`|<|>|:|;|%|\\|\s|\{|\}|\[|\]|\|)" { deny all; }
 location ~* "/(=|\$&|_mm|(wp-)?config\.|cgi-|etc/passwd|muieblack)" { deny all; }
 location ~* "(&pws=0|_vti_|\(null\)|\{\$itemURL\}|echo(.*)kae|etc/passwd|eval\(|self/environ)" { deny all; }
 location ~*  "/(^$|readme|license|example|README|LEGALNOTICE|INSTALLATION|CHANGELOG)\.(txt|html|md)" { deny all; }
 location ~* "\.(aspx?|bash|bak?|cfg|cgi|php~|dll|exe|git|hg|ini|jsp|log|mdb|out|sql|svn|swp|tar|rdf)$" { deny all; }
 location ~* "/(^$|mobiquo|phpinfo|shell|sqlpatch|thumb|thumb_editor|thumbopen|timthumb|webshell)\.php" { deny all; }
+
+## Block SQL injections
+set $block_sql_injections 0;
+if ($query_string ~ "union.*select.*\(") { set $block_sql_injections 1; }
+if ($query_string ~ "union.*all.*select.*") { set $block_sql_injections 1; }
+if ($query_string ~ "concat.*\(") { set $block_sql_injections 1; }
+if ($query_string ~ "drop.*(table|database)") { set $block_sql_injections 1; }
+if ($query_string ~ "delete.*from") { set $block_sql_injections 1; }
+if ($query_string ~ "update.*set") { set $block_sql_injections 1; }
+if ($block_sql_injections = 1) { return 403; }
+ 
+## Block file injections
+set $block_file_injections 0;
+if ($query_string ~ "[a-zA-Z0-9_]=http://") { set $block_file_injections 1; }
+if ($query_string ~ "[a-zA-Z0-9_]=(\.\.//?)+") { set $block_file_injections 1; }
+if ($query_string ~ "[a-zA-Z0-9_]=/([a-z0-9_.]//?)+") { set $block_file_injections 1; }
+if ($block_file_injections = 1) { return 403; }
+ 
+## Block common exploits
+set $block_common_exploits 0;
+if ($query_string ~ "(eval\()") { set $block_common_exploits 1; }
+if ($query_string ~ "(alert\()") { set $block_common_exploits 1; }
+if ($query_string ~ "javascript\:") { set $block_common_exploits 1; }
+if ($query_string ~ "(<|%3C).*script.*(>|%3E)") { set $block_common_exploits 1; }
+if ($query_string ~ "(GLOBALS|REQUEST)(=|\[|\%[0-9A-Z]{0,2})") { set $block_common_exploits 1; }
+if ($query_string ~ "proc/self/environ") { set $block_common_exploits 1; }
+if ($query_string ~ "mosConfig_[a-zA-Z_]{1,21}(=|\%3D)") { set $block_common_exploits 1; }
+if ($query_string ~ "base64_(en|de)code\(.*\)") { set $block_common_exploits 1; }
+if ($block_common_exploits = 1) { return 403; }
+ 
+## Block spam
+set $block_spam 0;
+if ($query_string ~ "\b(ultram|unicauca|valium|viagra|vicodin|xanax|ypxaieo)\b") { set $block_spam 1; }
+if ($query_string ~ "\b(erections|hoodia|huronriveracres|impotence|levitra|libido)\b") { set $block_spam 1; }
+if ($query_string ~ "\b(ambien|blue\spill|cialis|cocaine|ejaculation|erectile)\b") { set $block_spam 1; }
+if ($query_string ~ "\b(lipitor|phentermin|pro[sz]ac|sandyauer|tramadol|troyhamby)\b") { set $block_spam 1; }
+if ($block_spam = 1) { return 403; }
+ 
+## Block user agents
+set $block_user_agents 0;
+if ($http_user_agent ~ "Indy Library") { set $block_user_agents 1; }
+if ($http_user_agent ~ "libwww-perl") { set $block_user_agents 1; }
+if ($http_user_agent ~ "GetRight") { set $block_user_agents 1; }
+if ($http_user_agent ~ "GetWeb!") { set $block_user_agents 1; }
+if ($http_user_agent ~ "Go!Zilla") { set $block_user_agents 1; }
+if ($http_user_agent ~ "Download Demon") { set $block_user_agents 1; }
+if ($http_user_agent ~ "Go-Ahead-Got-It") { set $block_user_agents 1; }
+if ($http_user_agent ~ "TurnitinBot") { set $block_user_agents 1; }
+if ($http_user_agent ~ "GrabNet") { set $block_user_agents 1; }
+if ($block_user_agents = 1) { return 403; }
 
 ```
 
@@ -362,7 +412,7 @@ ab 与 nginx 在同机进行测试。34737个请求每秒是几次结果中较�
 
 ### 11. 结果（较好值)
 
-```
+```text
 Server Software:        nginx/1.12.2
 Server Hostname:        127.0.0.1
 Server Port:            80
