@@ -143,8 +143,9 @@ ssl_certificate_key      /web/soft/nginx/ssl/abc.com.key;
 
 # 不推荐使用 builtin:1000. 1MB共享缓存可容纳约4000个会话
 ssl_session_cache shared:SSL:80m;
-ssl_session_timeout 24h;
+ssl_session_timeout 600m;
 ssl_session_tickets off;
+ssl_buffer_size 64k;
 
 ssl_ciphers ECDHE-PSK:ECDHE-ECDSA:ECDHE-RSA:ECDH:AES:HIGH:!NULL:!aNULL:!EXPORT:!CAMELLIA:!MD5:!PSK:!ADH:!RC4:!DH:!DHE;
 ssl_prefer_server_ciphers on;
