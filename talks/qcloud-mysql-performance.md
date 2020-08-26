@@ -74,6 +74,8 @@ Threads fairness:
 
 ### 本地网络增强型云主机 (8核/16G/3.2GHz)
 
+注：my.cnf 基本为缺省配置, 仅添加 skip-name-resolve.
+
 ```log
 SQL statistics:
     queries performed:
