@@ -18,6 +18,8 @@ https://qcloud.com
 
 新闻报的有个客户丢失了两年的所有用户和公司数据，腾讯赔了十来万。
 
+- [MySQL 云数据库与本地数据库性能比较](talks/qcloud-mysql-performance.md)
+
 ## AWS
 
 https://aws.amazon.com
