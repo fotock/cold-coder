@@ -89,7 +89,7 @@ http {
     gzip_comp_level 6;
     gzip_min_length  500;
     gzip_buffers 16 8k;
-    gzip_types text/plain application/xml text/css text/js text/xml text/javascript application/javascript application/json application/xml+rss;
+    gzip_types text/plain application/xml text/html text/css text/js text/xml text/javascript application/javascript application/json application/xml+rss;
 
     server_tokens off;
     add_header X-Frame-Options SAMEORIGIN;
