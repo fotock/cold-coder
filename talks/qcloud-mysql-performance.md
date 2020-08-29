@@ -40,7 +40,10 @@ sysbench ./oltp_read_write.lua --mysql-host=IP --mysql-port=3306  --mysql-user=r
 
 ## 测试结果
 
-### 高可用 MySQL 云数据库 (4核8G)
+### 高可用 MySQL 云数据库
+
+- **配置** 4核8G
+- MySQL 5.6
 
 
 ```log
@@ -72,9 +75,11 @@ Threads fairness:
     execution time (avg/stddev):   42.0783/0.01
 ```
 
-### 本地网络增强型云主机 (8核/16G/3.2GHz)
+### 本地网络增强型云主机 ()
 
-注：my.cnf 基本为缺省配置, 仅添加 skip-name-resolve.
+- **配置** 8核/16G/3.2GHz
+- MySQL 5.5
+- my.cnf 基本为缺省配置, 仅添加 skip-name-resolve.
 
 ```log
 SQL statistics:

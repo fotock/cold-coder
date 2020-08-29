@@ -85,10 +85,11 @@ http {
     types_hash_max_size 4096;
 
     gzip  on;
+    gzip_vary on;
     gzip_disable "msie6";
     gzip_comp_level 6;
-    gzip_min_length  500;
-    gzip_buffers 16 8k;
+    gzip_min_length  1k;
+    gzip_buffers 4 64k;
     gzip_types text/plain application/xml text/html text/css text/js text/xml text/javascript application/javascript application/json application/xml+rss;
 
     server_tokens off;
@@ -111,10 +112,10 @@ proxy_send_timeout 300;
 proxy_read_timeout 300;
 
 proxy_buffer_size 64k;
-proxy_buffers 4 32k;
-proxy_busy_buffers_size 64k;
+proxy_buffers 4 64k;
+proxy_busy_buffers_size 256k;
+proxy_temp_file_write_size 256k;
 
-proxy_temp_file_write_size 64k;
 proxy_redirect off;
 proxy_hide_header Vary;
 proxy_ignore_client_abort on;
