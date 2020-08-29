@@ -113,8 +113,10 @@ proxy_read_timeout 300;
 
 proxy_buffer_size 64k;
 proxy_buffers 4 64k;
-proxy_busy_buffers_size 256k;
+proxy_busy_buffers_size 64k;
 proxy_temp_file_write_size 256k;
+# 所有临时文件总体积大小，磁盘上的临时文件不能超过该配置
+proxy_max_temp_file_size 1024m;
 
 proxy_redirect off;
 proxy_hide_header Vary;
