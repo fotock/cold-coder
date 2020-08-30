@@ -5,21 +5,61 @@
 >
 > Larry Wall, Perl 之父
 
-<br>
 
-1. 服务器: CentOS, Ubuntu, MS Server 2012
-2. HTTP服务: Nginx, Apache, Tomcat, IIS
-3. 数据库服务: MySQL, Redis, SQL Server, Memcached
-4. 语言: Java, PHP, Bash, Node JS
-5. 监控: Netdata, vnstat
-6. 编辑器: Vim
-7. 其他常用bash命令:
-    - find
-    - grep
-    - sed
-    - awk
-    - top
-    - iftop
-    - tar
-    - tcpdump
 
+## 服务器
+
+### [CentOS](servers/centos.md)
+
+### Ubuntu
+
+### MS Server 2012
+
+## Web 引擎
+
+### Nginx (servers/nginx.md)
+
+### Apache Tomcat
+
+### IIS
+
+## 数据库
+
+### MySQL
+
+### Redis
+
+### SQL Server
+
+### Memcached
+
+## 开发语言
+
+### Java
+
+### PHP
+
+### Node.js
+
+### Bash
+
+## 服务监控
+
+### Netdata
+
+### vnstat
+
+## 编辑器 Vim
+
+## 常用命令
+
+- find
+- grep
+- sed
+- awk
+- top
+- iftop
+- netstat
+- ps
+- tar
+- tcpdump
