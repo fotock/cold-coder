@@ -29,7 +29,7 @@ sysbench ./oltp_read_write.lua --mysql-host=IP --mysql-port=3306  --mysql-user=r
 2.测试数据(run)
 
 ```bash
-sysbench ./oltp_read_write.lua --mysql-host=IP --mysql-port=3306  --mysql-user=root --mysql-password='密码'  --mysql-db=test  --tables=4 --table-size=100000  --threads=128 --report-interval=3  --time=60 run
+sysbench ./oltp_read_write.lua --mysql-host=IP --mysql-port=3306  --mysql-user=root --mysql-password='密码'  --mysql-db=test  --tables=4 --table-size=100000  --threads=128 --report-interval=3  --time=42 run
 ```
 
 3.清理测试数据(cleanup)
@@ -75,11 +75,13 @@ Threads fairness:
     execution time (avg/stddev):   42.0783/0.01
 ```
 
-### 本地网络增强型云主机 ()
+### 本地网络增强型云主机
 
-- **配置** 8核/16G/3.2GHz
-- MySQL 5.5
-- my.cnf 基本为缺省配置, 仅添加 skip-name-resolve.
+**配置** 8核/16G/3.2GHz
+
+#### 版本 MySQL 5.5
+
+my.cnf 基本为缺省配置, 仅添加 skip-name-resolve.
 
 ```log
 SQL statistics:
@@ -109,3 +111,70 @@ Threads fairness:
     events (avg/stddev):           1818.3906/40.18
     execution time (avg/stddev):   42.0087/0.01
 ```
+
+#### 版本 MySQL 8.0.21
+
+my.cnf 配置 skip-name-resolve, skip-log-bin.
+
+1. 写入性能 oltp_write_only.lua
+
+```log
+SQL statistics:
+    queries performed:
+        read:                            0
+        write:                           3171308
+        **other**:                           1585654
+        total:                           4756962
+    transactions:                        792827 (**18867.98** per sec.)
+    queries:                             4756962 (113207.90 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      18867.9825
+    time elapsed:                        42.0197s
+    total number of events:              792827
+
+Latency (ms):
+         min:                                    0.26
+         avg:                                    6.78
+         max:                                  140.07
+         95th percentile:                       11.45
+         sum:                              5375043.45
+
+Threads fairness:
+    events (avg/stddev):           6193.9609/124.82
+    execution time (avg/stddev):   41.9925/0.00
+```
+
+2. 插入性能 oltp_insert.lua
+
+```log
+SQL statistics:
+    queries performed:
+        read:                            0
+        write:                           2592925
+        other:                           0
+        total:                           2592925
+    transactions:                        2592925 (**61710.58** per sec.)
+    queries:                             2592925 (61710.58 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      61710.5754
+    time elapsed:                        42.0175s
+    total number of events:              2592925
+
+Latency (ms):
+         min:                                    0.05
+         avg:                                    2.07
+         max:                                  301.90
+         95th percentile:                       14.73
+         sum:                              5370738.69
+
+Threads fairness:
+    events (avg/stddev):           20257.2266/650.96
+    execution time (avg/stddev):   41.9589/0.01
+```
+

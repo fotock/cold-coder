@@ -32,3 +32,4 @@ mysql -uroot -p
 
 ## [MySQL 高可用云数据库与本地数据库性能比较](qcloud-mysql-performance.md)
 
+## [MySQL 8.0 之 Insert 性能优化](mysql-insert-optimize.md)
