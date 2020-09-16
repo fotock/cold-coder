@@ -29,7 +29,7 @@ sysbench ./oltp_read_write.lua --mysql-host=IP --mysql-port=3306  --mysql-user=r
 2.测试数据(run)
 
 ```bash
-sysbench ./oltp_read_write.lua --mysql-host=IP --mysql-port=3306  --mysql-user=root --mysql-password='密码'  --mysql-db=test  --tables=4 --table-size=100000  --threads=128 --report-interval=3  --time=42 run
+sysbench ./oltp_read_write.lua --mysql-host=IP --mysql-port=3306  --mysql-user=root --mysql-password='密码'  --mysql-db=test  --tables=4 --table-size=100000  --threads=128 --report-interval=3  --time=30 run
 ```
 
 3.清理测试数据(cleanup)
@@ -38,9 +38,7 @@ sysbench ./oltp_read_write.lua --mysql-host=IP --mysql-port=3306  --mysql-user=r
 sysbench ./oltp_read_write.lua --mysql-host=IP --mysql-port=3306  --mysql-user=root --mysql-password='密码'  --mysql-db=test --tables=4 --table-size=100000  --threads=128  cleanup
 ```
 
-## 测试结果
-
-### 高可用 MySQL 云数据库
+## 测试1: 腾讯云高可用 MySQL 云数据库
 
 - **配置** 4核8G
 - MySQL 5.6
@@ -75,11 +73,11 @@ Threads fairness:
     execution time (avg/stddev):   42.0783/0.01
 ```
 
-### 本地网络增强型云主机
+## 测试2: 本地网络增强型云主机
 
 **配置** 8核/16G/3.2GHz
 
-#### 版本 MySQL 5.5
+### 版本 MySQL 5.5
 
 my.cnf 基本为缺省配置, 仅添加 skip-name-resolve.
 
@@ -112,18 +110,49 @@ Threads fairness:
     execution time (avg/stddev):   42.0087/0.01
 ```
 
-#### 版本 MySQL 8.0.21
+### 版本 MySQL 8.0.21
 
 my.cnf 配置 skip-name-resolve, skip-log-bin.
 
-1. 写入性能 oltp_write_only.lua
+- 1. 读写性能 oltp_read_write.lua
+
+```log
+SQL statistics:
+    queries performed:
+        read:                            2737490
+        write:                           782140
+        other:                           391070
+        total:                           3910700
+    transactions:                        195535 (5427.54 per sec.)
+    queries:                             3910700 (108550.87 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      5427.5435
+    time elapsed:                        36.0264s
+    total number of events:              195535
+
+Latency (ms):
+         min:                                    2.20
+         avg:                                   23.57
+         max:                                  178.39
+         95th percentile:                       33.12
+         sum:                              4608196.99
+
+Threads fairness:
+    events (avg/stddev):           1527.6172/15.36
+    execution time (avg/stddev):   36.0015/0.00
+```
+
+- 2. 写入性能 oltp_write_only.lua
 
 ```log
 SQL statistics:
     queries performed:
         read:                            0
         write:                           3171308
-        **other**:                           1585654
+        other:                           1585654
         total:                           4756962
     transactions:                        792827 (**18867.98** per sec.)
     queries:                             4756962 (113207.90 per sec.)
@@ -147,7 +176,7 @@ Threads fairness:
     execution time (avg/stddev):   41.9925/0.00
 ```
 
-2. 插入性能 oltp_insert.lua
+- 3. 插入性能 oltp_insert.lua
 
 ```log
 SQL statistics:
@@ -178,3 +207,95 @@ Threads fairness:
     execution time (avg/stddev):   41.9589/0.01
 ```
 
+- 4. 只读性能 oltp_read_only.lua
+
+```log
+SQL statistics:
+    queries performed:
+        read:                            4916310
+        write:                           0
+        other:                           702330
+        total:                           5618640
+    transactions:                        351165 (8356.19 per sec.)
+    queries:                             5618640 (133699.09 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      8356.1929
+    time elapsed:                        42.0245s
+    total number of events:              351165
+
+Latency (ms):
+         min:                                    1.17
+         avg:                                   15.31
+         max:                                   99.62
+         95th percentile:                       20.74
+         sum:                              5375894.91
+
+Threads fairness:
+    events (avg/stddev):           2743.4766/100.59
+    execution time (avg/stddev):   41.9992/0.01
+```
+
+- 5. 更新索引性能 oltp_update_index.lua
+
+```log
+SQL statistics:
+    queries performed:
+        read:                            0
+        write:                           2144942
+        other:                           0
+        total:                           2144942
+    transactions:                        2144942 (59561.59 per sec.)
+    queries:                             2144942 (59561.59 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      59561.5862
+    time elapsed:                        36.0122s
+    total number of events:              2144942
+
+Latency (ms):
+         min:                                    0.06
+         avg:                                    2.15
+         max:                                  170.35
+         95th percentile:                       10.46
+         sum:                              4606588.49
+
+Threads fairness:
+    events (avg/stddev):           16757.3594/332.18
+    execution time (avg/stddev):   35.9890/0.00
+```
+
+- 6. 更新非索引性能 oltp_update_non_index.lua
+
+```log
+SQL statistics:
+    queries performed:
+        read:                            0
+        write:                           2612775
+        other:                           0
+        total:                           2612775
+    transactions:                        2612775 (72550.94 per sec.)
+    queries:                             2612775 (72550.94 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      72550.9427
+    time elapsed:                        36.0130s
+    total number of events:              2612775
+
+Latency (ms):
+         min:                                    0.05
+         avg:                                    1.76
+         max:                                  221.17
+         95th percentile:                        9.39
+         sum:                              4606005.36
+
+Threads fairness:
+    events (avg/stddev):           20412.3047/477.17
+    execution time (avg/stddev):   35.9844/0.00
+```
