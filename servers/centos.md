@@ -24,7 +24,7 @@ reboot
 
 ## 目录结构
 
-···conf
+```conf
 /web
     /backup
     /cron
@@ -33,5 +33,3 @@ reboot
     /script
     /www
 ```
-
-
