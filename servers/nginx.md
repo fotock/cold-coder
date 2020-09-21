@@ -5,7 +5,7 @@
 <img src="/assets/nginx-request-flow.png" alt="">
 
 
-## 1. 编译配置
+## 编译配置
 
 ```bash
 ./configure --with-threads \
@@ -28,8 +28,7 @@
  --http-fastcgi-temp-path=/var/tmp/nginx/fastcgi
 ```
 
-
-## 2. 目录结构
+## 目录结构
 
 ```
 sbin
@@ -47,7 +46,7 @@ conf
        \_ site-abc.com.conf
 ```
 
-## 3. 配置示例: nginx.conf
+## 配置示例: nginx.conf
 
 ```nginx
 user  www www;
@@ -87,7 +86,7 @@ http {
     gzip  on;
     gzip_vary on;
     gzip_disable "msie6";
-    gzip_comp_level 6;
+    gzip_comp_level 4;
     gzip_min_length  1k;
     gzip_buffers 4 64k;
     gzip_types text/plain application/xml text/html text/css text/js text/xml text/javascript application/javascript application/json application/xml+rss;
@@ -104,7 +103,7 @@ http {
 }
 ```
 
-## 4. 代理参数配置: conf.d/_proxy.conf
+## 反向代理参数配置 (conf.d/_proxy.conf)
 
 ```nginx
 proxy_connect_timeout 300;
@@ -133,7 +132,7 @@ proxy_set_header X-Real-IP $remote_addr;
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 ```
 
-## 5. SSL 参数配置 (conf.d/_ssl.conf)
+## SSL 参数配置 (conf.d/_ssl.conf)
 
 该配置可在证书安全评测网站 https://myssl.com 和 https://www.ssllabs.com/ssltest 获得最高级 A+ 评级。
 
@@ -163,7 +162,7 @@ ssl_trusted_certificate /web/soft/nginx/ssl/abc.com.ca-intermediates;
 add_header Strict-Transport-Security "max-age=15768000; includeSubdomains" always;
 ```
 
-#### 说明
+### 说明
 
 第1. 关于 DH params, 可以生成4096位的。嫌麻烦，干脆禁用它。
 
@@ -183,35 +182,10 @@ ssl_dhparam /etc/ssl/certs/dhparam.pem;
 ```
 
 第3. 其他 Apache, Lighttpd, HAProxy 等配置可参考Mozilla官方的推荐配置:
+
 https://mozilla.github.io/server-side-tls/ssl-config-generator
 
-
-## 6. PHP-FPM 站点配置示例 site-php-fpm.conf
-
-```nginx
-server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-    server_name a.com b.com;
-    root /web/www/a.com;
-
-    location / {
-        try_files $uri $uri/ /index.php$is_args$args;
-    }
-
-    location ~* \.php$ {
-        fastcgi_index   index.php;
-        fastcgi_pass    127.0.0.1:9000;
-        include         fastcgi_params;
-        fastcgi_param   SCRIPT_FILENAME    $document_root$fastcgi_script_name;
-        fastcgi_param   SCRIPT_NAME        $fastcgi_script_name;
-    }
-
-    access_log  /web/log/nginx/a.com.access.log  detailed;
-}
-```
-
-## 7. 代理站点配置 site-proxy.conf
+## 典型站点配置 (site-abc.com.conf)
 
 ```nginx
 upstream upstream {
@@ -229,11 +203,13 @@ server {
         include conf.d/_proxy.conf;
     }
 
+    include conf.d/_security.conf;
+    include conf.d/_error.conf;
     access_log  /web/log/nginx/a.com.access.log  detailed;
 }
 ```
 
-## 8. 启用 SSL 代理站点配置 site-ssl-proxy.conf
+## 典型 SSL 站点配置 (site-ssl-abc.com.conf)
 
 ```nginx
 upstream upstreamssl {
@@ -244,10 +220,9 @@ upstream upstreamssl {
 server {
     listen [::]:443 ssl http2;
     listen      443 ssl http2;
-    server_name abc.com;
 
+    server_name abc.com;
     root html;
-    access_log  /web/log/nginx/abc.access.log;
 
     include conf.d/_ssl.conf;
 
@@ -260,77 +235,14 @@ server {
         proxy_pass  http://upstreamssl;
         include conf.d/_proxy.conf;
     }
+
+    include conf.d/_security.conf;
+    include conf.d/_error.conf;
+    access_log  /web/log/nginx/abc.access.log;
 }
 ```
 
-### 8.1 示例 Reverse Proxy to Google
-
-#### A. 一般配置
-
-```nginx
-server {
-    listen 80;
-    server_name example.com;
-
-    location / {
-        proxy_pass https://www.google.com;
-        proxy_set_header Host www.google.com;
-        proxy_set_header Referer https://www.google.com;
-
-        proxy_set_header User-Agent $http_user_agent;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header Accept-Encoding "";
-        proxy_set_header Accept-Language $http_accept_language;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-
-        sub_filter google.com example.com;
-        sub_filter_once off;
-    }
-}
-```
-
-OK, type in your domain name on the browser, you can access Google now, even in `China`.
-
-
-#### B. 支持 SSL 的配置
-
-```nginx
-server {
-    listen 80;
-    server_name example.com;
-    location / {
-        rewrite ^/(.*)$ https://$host$1 permanent;
-    }
-}
-
-server {
-    listen 443 ssl;
-    server_name example.com;
-
-    ssl_certificate      /etc/ssl/example.crt;
-    ssl_certificate_key  /etc/ssl/example.key;
-
-    ssl_session_cache    shared:SSL:1m;
-    ssl_session_timeout  5m;
-
-    location / {
-        proxy_pass https://www.google.com;
-        proxy_set_header Host www.google.com;
-        proxy_set_header Referer https://www.google.com;
-
-        proxy_set_header User-Agent $http_user_agent;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header Accept-Encoding "";
-        proxy_set_header Accept-Language $http_accept_language;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-
-        sub_filter google.com example.com;
-        sub_filter_once off;
-    }
-}
-```
-
-## 9. 防SQL/文件入注等
+## 安全、防入注、CSRF等 (conf.d/_security.conf)
 
 ```nginx
 location ~* "(eval\()"  { deny all; }
@@ -407,14 +319,33 @@ if ($block_user_agents = 1) { return 403; }
 
 ```
 
+## 错误处理 (conf.d/_error.conf)
 
-## 10. 性能测试 (ApacheBench)
+```conf
+error_page 403 /403.html;
+location = /403.html {
+        internal;
+        allow all;
+        root   html;
+        access_log /var/log/nginx/403.access.log detailed buffer=128k flush=5s;
+}
+
+error_page 404 /404.html;
+location = /404.html {
+        internal;
+        allow all;
+        root   html;
+        access_log /var/log/nginx/404.access.log detailed buffer=128k flush=5s;
+}
+```
+
+## 性能测试 (ApacheBench)
 
 环境:
 阿里云ECS，双核 Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz
 ab 与 nginx 在同机进行测试。34737个请求每秒是几次结果中较高的值。
 
-### 11. 结果（较好值)
+### 结果 (较好值)
 
 ```text
 Server Software:        nginx/1.12.2
@@ -441,4 +372,93 @@ Transfer rate:          133493.06 [Kbytes/sec] received
 
 ```bash
 .acme.sh/acme.sh --issue --debug -d domain.com -w nginx:/web/soft/nginx/conf/conf.d/domain.com.conf
+```
+
+## PHP-FPM 站点配置示例 site-php-fpm.conf
+
+```nginx
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    server_name a.com b.com;
+    root /web/www/a.com;
+
+    location / {
+        try_files $uri $uri/ /index.php$is_args$args;
+    }
+
+    location ~* \.php$ {
+        fastcgi_index   index.php;
+        fastcgi_pass    127.0.0.1:9000;
+        include         fastcgi_params;
+        fastcgi_param   SCRIPT_FILENAME    $document_root$fastcgi_script_name;
+        fastcgi_param   SCRIPT_NAME        $fastcgi_script_name;
+    }
+
+    access_log  /web/log/nginx/a.com.access.log  detailed;
+}
+```
+
+## 示例 Reverse Proxy to Google
+
+### A. 一般配置
+
+```nginx
+server {
+    listen 80;
+    server_name example.com;
+
+    location / {
+        proxy_pass https://www.google.com;
+        proxy_set_header Host www.google.com;
+        proxy_set_header Referer https://www.google.com;
+
+        proxy_set_header User-Agent $http_user_agent;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header Accept-Encoding "";
+        proxy_set_header Accept-Language $http_accept_language;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        sub_filter google.com example.com;
+        sub_filter_once off;
+    }
+}
+```
+
+### B. 支持 SSL 的配置
+
+```nginx
+server {
+    listen 80;
+    server_name example.com;
+    location / {
+        rewrite ^/(.*)$ https://$host$1 permanent;
+    }
+}
+
+server {
+    listen 443 ssl;
+    server_name example.com;
+
+    ssl_certificate      /etc/ssl/example.crt;
+    ssl_certificate_key  /etc/ssl/example.key;
+
+    ssl_session_cache    shared:SSL:1m;
+    ssl_session_timeout  5m;
+
+    location / {
+        proxy_pass https://www.google.com;
+        proxy_set_header Host www.google.com;
+        proxy_set_header Referer https://www.google.com;
+
+        proxy_set_header User-Agent $http_user_agent;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header Accept-Encoding "";
+        proxy_set_header Accept-Language $http_accept_language;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        sub_filter google.com example.com;
+        sub_filter_once off;
+    }
+}
 ```
