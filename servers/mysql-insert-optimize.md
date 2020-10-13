@@ -16,7 +16,7 @@ CREATE TABLE `bench_insert` (
 
 ```
 
-## 创建存储过程，各插入10k记录
+## 创建存储过程，各插入100k记录
 
 ```sql
 delimiter $$
@@ -92,7 +92,7 @@ CALL test_insert_trans1();
 1. test_insert_trans 比 test_insert 平均提升约1倍 (1.37s vs 2.66s);
 2. test_insert_trans1 比 test_insert 降低约17% (2.94s vs 2.51s);
 
-## 附录 my.cnf
+## 附录1 my.cnf
 
 ```conf
 [mysqld]
@@ -101,3 +101,27 @@ skip-log-bin
 
 innodb_flush_log_at_trx_commit = 2
 ```
+
+## 附录2 更新单个字段
+
+```sql
+delimiter $$
+DROP PROCEDURE IF EXISTS test_update;
+CREATE PROCEDURE test_update()
+BEGIN
+    DECLARE n int DEFAULT 1;
+        loopname:LOOP
+            update bench_insert set `i3`= FLOOR(RAND()*2500) where id=1;
+            SET n=n+1;
+        IF n=100000 THEN
+            LEAVE loopname;
+        END IF;
+        END LOOP loopname;
+END;
+$$
+delimiter ;
+
+call test_update();
+```
+
+>> 10万次更新，耗时 3.44 秒。

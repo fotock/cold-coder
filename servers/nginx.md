@@ -51,7 +51,6 @@ conf
 ```nginx
 user  www www;
 worker_processes  auto;
-worker_rlimit_nofile 100000;
 
 error_log  /web/log/nginx/error.log;
 error_log  /web/log/nginx/error-notice.log  notice;
@@ -59,7 +58,8 @@ error_log  /web/log/error-info.log  info;
 
 events {
     use epoll;
-    worker_connections  10000;
+    worker_connections  50000;
+    worker_rlimit_nofile 204800;
     multi_accept on;
 }
 
@@ -92,9 +92,13 @@ http {
     gzip_types text/plain application/xml text/html text/css text/js text/xml text/javascript application/javascript application/json application/xml+rss;
 
     server_tokens off;
-    add_header X-Frame-Options SAMEORIGIN;
-    add_header X-Content-Type-Options nosniff;
-    add_header X-XSS-Protection "1; mode=block";
+
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-XSS-Protection "1; mode=block" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header Referrer-Policy "no-referrer-when-downgrade" always;
+    add_header Content-Security-Policy "default-src * data: 'unsafe-eval' 'unsafe-inline'" always;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
 
     # 允许内容来源. 需自行按实际情况修改: 如允许百度统计、腾讯统计、公共 css/js CDN等
     #add_header Content-Security-Policy "default-src 'self'; script-src 'self' https://ssl.google-analytics.com; img-src 'self' https://ssl.google-analytics.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://themes.googleusercontent.com; frame-src 'none'; object-src 'none'";
@@ -145,7 +149,7 @@ ssl_certificate_key      /web/soft/nginx/ssl/abc.com.key;
 
 # 不推荐使用 builtin:1000. 1MB共享缓存可容纳约4000个会话
 ssl_session_cache shared:SSL:80m;
-ssl_session_timeout 600m;
+ssl_session_timeout 1d;
 ssl_session_tickets off;
 ssl_buffer_size 64k;
 
@@ -218,8 +222,8 @@ upstream upstreamssl {
 }
 
 server {
-    listen [::]:443 ssl http2;
-    listen      443 ssl http2;
+    listen [::]:443 http2;
+    listen      443 http2;
 
     server_name abc.com;
     root html;
