@@ -56,12 +56,12 @@ SQL statistics:
     reconnects:                          0      (0.00 per sec.)
 
 Throughput:
-    events/s (eps):                      **1450.9584**
+    events/s (eps):                      1450.9584
     time elapsed:                        42.0970s
     total number of events:              61081
 
 Latency (ms):
-         min:                                    **8.62**
+         min:                                    8.62
          avg:                                   88.18
          max:                                  341.59
          95th percentile:                      179.94
@@ -93,7 +93,7 @@ SQL statistics:
     reconnects:                          0      (0.00 per sec.)
 
 Throughput:
-    events/s (eps):                      **5538.1386**
+    events/s (eps):                      5538.1386
     time elapsed:                        42.0275s
     total number of events:              232754
 
@@ -128,7 +128,7 @@ SQL statistics:
     reconnects:                          0      (0.00 per sec.)
 
 Throughput:
-    events/s (eps):                      **5427.5435**
+    events/s (eps):                      5427.5435
     time elapsed:                        36.0264s
     total number of events:              195535
 
@@ -153,13 +153,13 @@ SQL statistics:
         write:                           3171308
         other:                           1585654
         total:                           4756962
-    transactions:                        792827 (**18867.98** per sec.)
+    transactions:                        792827 (18867.98 per sec.)
     queries:                             4756962 (113207.90 per sec.)
     ignored errors:                      0      (0.00 per sec.)
     reconnects:                          0      (0.00 per sec.)
 
 Throughput:
-    events/s (eps):                      **18867.9825**
+    events/s (eps):                      18867.9825
     time elapsed:                        42.0197s
     total number of events:              792827
 
@@ -184,13 +184,13 @@ SQL statistics:
         write:                           2592925
         other:                           0
         total:                           2592925
-    transactions:                        2592925 (**61710.58** per sec.)
+    transactions:                        2592925 (61710.58 per sec.)
     queries:                             2592925 (61710.58 per sec.)
     ignored errors:                      0      (0.00 per sec.)
     reconnects:                          0      (0.00 per sec.)
 
 Throughput:
-    events/s (eps):                      **61710.5754**
+    events/s (eps):                      61710.5754
     time elapsed:                        42.0175s
     total number of events:              2592925
 
@@ -221,7 +221,7 @@ SQL statistics:
     reconnects:                          0      (0.00 per sec.)
 
 Throughput:
-    events/s (eps):                      **8356.1929**
+    events/s (eps):                      8356.1929
     time elapsed:                        42.0245s
     total number of events:              351165
 
@@ -252,7 +252,7 @@ SQL statistics:
     reconnects:                          0      (0.00 per sec.)
 
 Throughput:
-    events/s (eps):                      **59561.5862**
+    events/s (eps):                      59561.5862
     time elapsed:                        36.0122s
     total number of events:              2144942
 
@@ -283,7 +283,7 @@ SQL statistics:
     reconnects:                          0      (0.00 per sec.)
 
 Throughput:
-    events/s (eps):                      **72550.9427**
+    events/s (eps):                      72550.9427
     time elapsed:                        36.0130s
     total number of events:              2612775
 
