@@ -40,9 +40,8 @@ sysbench ./oltp_read_write.lua --mysql-host=IP --mysql-port=3306  --mysql-user=r
 
 ## 测试1: 腾讯云高可用 MySQL 云数据库
 
-- **配置** 4核8G
-- MySQL 5.6
-
+- **配置** 4核心，8G内存(NVMe, 240k IOPS)
+- **版本**  MySQL 5.6
 
 ```log
 SQL statistics:
@@ -57,12 +56,12 @@ SQL statistics:
     reconnects:                          0      (0.00 per sec.)
 
 Throughput:
-    events/s (eps):                      1450.9584
+    events/s (eps):                      **1450.9584**
     time elapsed:                        42.0970s
     total number of events:              61081
 
 Latency (ms):
-         min:                                    8.62
+         min:                                    **8.62**
          avg:                                   88.18
          max:                                  341.59
          95th percentile:                      179.94
@@ -75,9 +74,9 @@ Threads fairness:
 
 ## 测试2: 本地网络增强型云主机
 
-**配置** 8核/16G/3.2GHz
+**配置** 3.2GHz/8核/16G
 
-### 版本 MySQL 5.5
+### 版本1: MySQL 5.5
 
 my.cnf 基本为缺省配置, 仅添加 skip-name-resolve.
 
@@ -94,7 +93,7 @@ SQL statistics:
     reconnects:                          0      (0.00 per sec.)
 
 Throughput:
-    events/s (eps):                      5538.1386
+    events/s (eps):                      **5538.1386**
     time elapsed:                        42.0275s
     total number of events:              232754
 
@@ -110,11 +109,11 @@ Threads fairness:
     execution time (avg/stddev):   42.0087/0.01
 ```
 
-### 版本 MySQL 8.0.21
+### 版本2: MySQL 8.0.21
 
 my.cnf 配置 skip-name-resolve, skip-log-bin.
 
-- 1. 读写性能 oltp_read_write.lua
+- 1 读写综合 oltp_read_write.lua
 
 ```log
 SQL statistics:
@@ -129,7 +128,7 @@ SQL statistics:
     reconnects:                          0      (0.00 per sec.)
 
 Throughput:
-    events/s (eps):                      5427.5435
+    events/s (eps):                      **5427.5435**
     time elapsed:                        36.0264s
     total number of events:              195535
 
@@ -145,7 +144,7 @@ Threads fairness:
     execution time (avg/stddev):   36.0015/0.00
 ```
 
-- 2. 写入性能 oltp_write_only.lua
+- 2 写入 oltp_write_only.lua
 
 ```log
 SQL statistics:
@@ -160,7 +159,7 @@ SQL statistics:
     reconnects:                          0      (0.00 per sec.)
 
 Throughput:
-    events/s (eps):                      18867.9825
+    events/s (eps):                      **18867.9825**
     time elapsed:                        42.0197s
     total number of events:              792827
 
@@ -176,7 +175,7 @@ Threads fairness:
     execution time (avg/stddev):   41.9925/0.00
 ```
 
-- 3. 插入性能 oltp_insert.lua
+- 3 插入 oltp_insert.lua
 
 ```log
 SQL statistics:
@@ -191,7 +190,7 @@ SQL statistics:
     reconnects:                          0      (0.00 per sec.)
 
 Throughput:
-    events/s (eps):                      61710.5754
+    events/s (eps):                      **61710.5754**
     time elapsed:                        42.0175s
     total number of events:              2592925
 
@@ -207,7 +206,7 @@ Threads fairness:
     execution time (avg/stddev):   41.9589/0.01
 ```
 
-- 4. 只读性能 oltp_read_only.lua
+- 4 只读 oltp_read_only.lua
 
 ```log
 SQL statistics:
@@ -222,7 +221,7 @@ SQL statistics:
     reconnects:                          0      (0.00 per sec.)
 
 Throughput:
-    events/s (eps):                      8356.1929
+    events/s (eps):                      **8356.1929**
     time elapsed:                        42.0245s
     total number of events:              351165
 
@@ -238,7 +237,7 @@ Threads fairness:
     execution time (avg/stddev):   41.9992/0.01
 ```
 
-- 5. 更新索引性能 oltp_update_index.lua
+- 5 更新索引字段 oltp_update_index.lua
 
 ```log
 SQL statistics:
@@ -253,7 +252,7 @@ SQL statistics:
     reconnects:                          0      (0.00 per sec.)
 
 Throughput:
-    events/s (eps):                      59561.5862
+    events/s (eps):                      **59561.5862**
     time elapsed:                        36.0122s
     total number of events:              2144942
 
@@ -269,7 +268,7 @@ Threads fairness:
     execution time (avg/stddev):   35.9890/0.00
 ```
 
-- 6. 更新非索引性能 oltp_update_non_index.lua
+- 6 更新非索引字段 oltp_update_non_index.lua
 
 ```log
 SQL statistics:
@@ -284,7 +283,7 @@ SQL statistics:
     reconnects:                          0      (0.00 per sec.)
 
 Throughput:
-    events/s (eps):                      72550.9427
+    events/s (eps):                      **72550.9427**
     time elapsed:                        36.0130s
     total number of events:              2612775
 
