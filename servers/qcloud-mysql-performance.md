@@ -40,9 +40,8 @@ sysbench ./oltp_read_write.lua --mysql-host=IP --mysql-port=3306  --mysql-user=r
 
 ## 测试1: 腾讯云高可用 MySQL 云数据库
 
-- **配置** 4核8G
-- MySQL 5.6
-
+- **配置** 4核心，8G内存(NVMe, 240k IOPS)
+- **版本**  MySQL 5.6
 
 ```log
 SQL statistics:
@@ -75,9 +74,9 @@ Threads fairness:
 
 ## 测试2: 本地网络增强型云主机
 
-**配置** 8核/16G/3.2GHz
+**配置** 3.2GHz/8核/16G
 
-### 版本 MySQL 5.5
+### 版本1: MySQL 5.5
 
 my.cnf 基本为缺省配置, 仅添加 skip-name-resolve.
 
@@ -110,11 +109,11 @@ Threads fairness:
     execution time (avg/stddev):   42.0087/0.01
 ```
 
-### 版本 MySQL 8.0.21
+### 版本2: MySQL 8.0.21
 
 my.cnf 配置 skip-name-resolve, skip-log-bin.
 
-- 1. 读写性能 oltp_read_write.lua
+- 1 读写综合 oltp_read_write.lua
 
 ```log
 SQL statistics:
@@ -145,7 +144,7 @@ Threads fairness:
     execution time (avg/stddev):   36.0015/0.00
 ```
 
-- 2. 写入性能 oltp_write_only.lua
+- 2 写入 oltp_write_only.lua
 
 ```log
 SQL statistics:
@@ -154,7 +153,7 @@ SQL statistics:
         write:                           3171308
         other:                           1585654
         total:                           4756962
-    transactions:                        792827 (**18867.98** per sec.)
+    transactions:                        792827 (18867.98 per sec.)
     queries:                             4756962 (113207.90 per sec.)
     ignored errors:                      0      (0.00 per sec.)
     reconnects:                          0      (0.00 per sec.)
@@ -176,7 +175,7 @@ Threads fairness:
     execution time (avg/stddev):   41.9925/0.00
 ```
 
-- 3. 插入性能 oltp_insert.lua
+- 3 插入 oltp_insert.lua
 
 ```log
 SQL statistics:
@@ -185,7 +184,7 @@ SQL statistics:
         write:                           2592925
         other:                           0
         total:                           2592925
-    transactions:                        2592925 (**61710.58** per sec.)
+    transactions:                        2592925 (61710.58 per sec.)
     queries:                             2592925 (61710.58 per sec.)
     ignored errors:                      0      (0.00 per sec.)
     reconnects:                          0      (0.00 per sec.)
@@ -207,7 +206,7 @@ Threads fairness:
     execution time (avg/stddev):   41.9589/0.01
 ```
 
-- 4. 只读性能 oltp_read_only.lua
+- 4 只读 oltp_read_only.lua
 
 ```log
 SQL statistics:
@@ -238,7 +237,7 @@ Threads fairness:
     execution time (avg/stddev):   41.9992/0.01
 ```
 
-- 5. 更新索引性能 oltp_update_index.lua
+- 5 更新索引字段 oltp_update_index.lua
 
 ```log
 SQL statistics:
@@ -269,7 +268,7 @@ Threads fairness:
     execution time (avg/stddev):   35.9890/0.00
 ```
 
-- 6. 更新非索引性能 oltp_update_non_index.lua
+- 6 更新非索引字段 oltp_update_non_index.lua
 
 ```log
 SQL statistics:
