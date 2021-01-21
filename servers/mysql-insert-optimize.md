@@ -125,3 +125,62 @@ call test_update();
 ```
 
 >> 10万次更新，耗时 3.44 秒。
+
+
+## memory vs innodb 引擎对比插入速度
+
+CPU 8核/3.2GHz。6个字段，5万条记录。
+
+### memory (0.18s)
+
+```sql
+CREATE TABLE `tbmemory`
+(
+  `id`         bigint(20)       DEFAULT NULL,
+  `datetime`   timestamp        DEFAULT CURRENT_TIMESTAMP,
+  `channel`    int(11)          DEFAULT NULL,
+  `value`      bigint(20)       DEFAULT NULL,
+  `tiny`     tinyint unsigned DEFAULT NULL,
+  `str` varchar(30) default null
+) ENGINE = MEMORY;
+
+INSERT INTO `tbmemory` (`id`, `datetime`,`value`,`channel`, `tiny`, `str`)
+WITH recursive 
+cte AS (select 1 i
+        union all
+        select i+1 from cte where i <= 50000)
+select i, 
+       FROM_UNIXTIME(UNIX_TIMESTAMP('2014-01-01 01:00:00')+FLOOR(RAND()*31536000)),
+       ROUND(RAND()*100,2),
+       i,
+       i%200,
+       '123456789123456789123456789'
+FROM cte;
+```
+
+### innodb (0.55s)
+
+```sql
+CREATE TABLE `tbinnodb`
+(
+  `id`         bigint(20)       DEFAULT NULL,
+  `datetime`   timestamp        DEFAULT CURRENT_TIMESTAMP,
+  `channel`    int(11)          DEFAULT NULL,
+  `value`      bigint(20)       DEFAULT NULL,
+  `tiny`       tinyint unsigned DEFAULT NULL,
+  `str` varchar(30) default null
+) ENGINE = innodb;
+
+INSERT INTO `tbinnodb` (`id`, `datetime`,`value`,`channel`, `tiny`, `str`)
+WITH recursive 
+cte AS (select 1 i
+        union all
+        select i+1 from cte where i <= 50000)
+select i, 
+       FROM_UNIXTIME(UNIX_TIMESTAMP('2014-01-01 01:00:00')+FLOOR(RAND()*31536000)),
+       ROUND(RAND()*100,2),
+       i,
+       i%200,
+       '123456789123456789123456789'
+FROM cte;
+```
