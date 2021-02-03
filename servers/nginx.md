@@ -126,8 +126,6 @@ proxy_hide_header Vary;
 proxy_ignore_client_abort on;
 proxy_http_version 1.1;
 
-proxy_set_header Connection "";
-proxy_set_header Accept-Encoding '';
 proxy_set_header Host $host;
 proxy_set_header Referer $http_referer;
 proxy_set_header Cookie $http_cookie;
@@ -501,5 +499,4 @@ Kestrel 后端错误解决:
 
 ```conf
 proxy_set_header Upgrade $http_upgrade;
-proxy_set_header Connection $http_connection;
 ```
