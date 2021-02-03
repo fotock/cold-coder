@@ -466,3 +466,13 @@ server {
     }
 }
 ```
+
+
+## HTTP 400
+
+Kestrel 后端错误解决:
+
+```conf
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Connection $http_connection;
+```
