@@ -345,7 +345,7 @@ location = /404.html {
 
 ## 性能测试 (ApacheBench)
 
-环境:
+**环境1**:
 阿里云ECS，双核 Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz
 ab 与 nginx 在同机进行测试。34737个请求每秒是几次结果中较高的值。
 
@@ -370,6 +370,33 @@ Requests per second:    34747.56 [#/sec] (mean)
 Time per request:       5.756 [ms] (mean)
 Time per request:       0.029 [ms] (mean, across all concurrent requests)
 Transfer rate:          133493.06 [Kbytes/sec] received
+```
+
+**环境2**:
+腾讯云，8核 CPU @ 3.2GHz，高性能云盘
+ab 与 nginx 在不同服务器。41121 rps是几次结果中最好的值(平均在32k左右)。
+
+### 结果 (最好值)
+
+```log
+Server Software:        nginx/1.16.1
+Server Hostname:        127.0.0.1
+Server Port:            80
+
+Document Path:          /index.html
+Document Length:        194 bytes
+
+Concurrency Level:      100
+Time taken for tests:   0.486 seconds
+Complete requests:      20000
+Failed requests:        0
+Write errors:           0
+Total transferred:      13500000 bytes
+HTML transferred:       3880000 bytes
+Requests per second:    41121.55 [#/sec] (mean)
+Time per request:       2.432 [ms] (mean)
+Time per request:       0.024 [ms] (mean, across all concurrent requests)
+Transfer rate:          27106.49 [Kbytes/sec] received
 ```
 
 ## acme 自动安装证书
