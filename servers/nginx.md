@@ -492,11 +492,18 @@ server {
 }
 ```
 
-
 ## HTTP 400
 
 Kestrel 后端错误解决:
 
 ```conf
 proxy_set_header Upgrade $http_upgrade;
+```
+
+## ExpressJS页面无法读取cookie
+
+在域名conf文件里设置cookie的samesite和secure信息
+
+```conf
+proxy_cookie_path / "/; secure; SameSite=None;";
 ```
