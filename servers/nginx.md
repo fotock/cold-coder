@@ -343,11 +343,12 @@ location = /404.html {
 
 ## 性能测试 (ApacheBench)
 
-**环境1**:
+### 环境1
+
 阿里云ECS，双核 Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz
 ab 与 nginx 在同机进行测试。34737个请求每秒是几次结果中较高的值。
 
-### 结果 (较好值)
+**结果 (较好值)**
 
 ```text
 Server Software:        nginx/1.12.2
@@ -370,11 +371,12 @@ Time per request:       0.029 [ms] (mean, across all concurrent requests)
 Transfer rate:          133493.06 [Kbytes/sec] received
 ```
 
-**环境2**:
+### 环境2
+
 腾讯云，8核 CPU @ 3.2GHz，高性能云盘
 ab 与 nginx 在不同服务器。41121 rps是几次结果中最好的值(平均在32k左右)。
 
-### 结果 (最好值)
+**结果 (较好值)**
 
 ```log
 Server Software:        nginx/1.16.1
@@ -395,6 +397,34 @@ Requests per second:    41121.55 [#/sec] (mean)
 Time per request:       2.432 [ms] (mean)
 Time per request:       0.024 [ms] (mean, across all concurrent requests)
 Transfer rate:          27106.49 [Kbytes/sec] received
+```
+
+### 环境3
+
+腾讯云，4核, 8GB, 3.2GHz，SSD云盘
+ab 与 nginx 在不同服务器, 4 workers。51538 RPS是几次结果中最好的值。
+
+**结果 (最好值)**
+
+```log
+Server Software:        openresty
+Server Hostname:        training.tencentads.com
+Server Port:            10080
+
+Document Path:          /jkjcha
+Document Length:        2 bytes
+
+Concurrency Level:      100
+Time taken for tests:   0.097 seconds
+Complete requests:      5000
+Failed requests:        0
+Write errors:           0
+Total transferred:      900000 bytes
+HTML transferred:       10000 bytes
+Requests per second:    51538.95 [#/sec] (mean)
+Time per request:       1.940 [ms] (mean)
+Time per request:       0.019 [ms] (mean, across all concurrent requests)
+Transfer rate:          9059.58 [Kbytes/sec] received
 ```
 
 ## acme 自动安装证书
