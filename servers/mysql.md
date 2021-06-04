@@ -33,7 +33,8 @@ mysql -uroot -p
 alter user 'root'@'localhost'IDENTIFIED BY 'YourNewPass@123';
 
 #授权
-create user 'dbuser'@'%' identified by 'dbpass';
+# create user 'dbuser'@'%' identified by 'dbpass';
+create user 'dbuser'@'%' identified with mysql_native_password by 'xxxxx';
 grant all privileges on db.* to 'dbuser'@'%';
 flush privileges;
 ```
