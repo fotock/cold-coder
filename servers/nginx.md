@@ -288,14 +288,18 @@ if ($block_file_injections = 1) { return 403; }
  
 ## Block common exploits
 set $block_common_exploits 0;
-if ($query_string ~ "(eval\()") { set $block_common_exploits 1; }
-if ($query_string ~ "(alert\()") { set $block_common_exploits 1; }
+if ($query_string ~ "(eval.*\()") { set $block_common_exploits 1; }
+if ($query_string ~ "(alert.*\()") { set $block_common_exploits 1; }
+if ($query_string ~ "(prompt.*[\(|%]+)") { set $block_common_exploits 1; }
+if ($query_string ~ "(confirm.*[\(|%]+)") { set $block_common_exploits 1; }
 if ($query_string ~ "javascript\:") { set $block_common_exploits 1; }
 if ($query_string ~ "(<|%3C).*script.*(>|%3E)") { set $block_common_exploits 1; }
 if ($query_string ~ "(GLOBALS|REQUEST)(=|\[|\%[0-9A-Z]{0,2})") { set $block_common_exploits 1; }
 if ($query_string ~ "proc/self/environ") { set $block_common_exploits 1; }
 if ($query_string ~ "mosConfig_[a-zA-Z_]{1,21}(=|\%3D)") { set $block_common_exploits 1; }
 if ($query_string ~ "base64_(en|de)code\(.*\)") { set $block_common_exploits 1; }
+if ($query_string ~ "\+\+\/\/") { set $block_common_exploits 1; }
+if ($query_string ~ "\"\-\"\-") { set $block_common_exploits 1; }
 if ($block_common_exploits = 1) { return 403; }
  
 ## Block spam
