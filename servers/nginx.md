@@ -247,7 +247,7 @@ server {
 ## 安全、防入注、CSRF等 (conf.d/_security.conf)
 
 ```nginx
-location ~* "(eval\()"  { deny all; }
+location ~* "(eval.*\()"  { deny all; }
 location ~* "(127\.0\.0\.1)"  { deny all; }
 location ~* "([a-z0-9]{2000})"  { deny all; }
 location ~* "(javascript\:)(.*)(\;)"  { deny all; }
