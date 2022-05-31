@@ -26,3 +26,11 @@
 ### 目录会无效
 
 左右切页面时，导航会无效。暂时无解。
+
+### 编译成epub/mobi
+
+电脑上装 gitbook。
+
+```bash
+gitbook epub ./ book.epub
+```
