@@ -3,17 +3,17 @@
 ## CentOS 7 安装 MySQL 8 (使用国内镜像)
 
 ```bash
-wget http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/MySQL-8.0/mysql-community-server-8.0.21-1.el7.x86_64.rpm
-wget http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/MySQL-8.0/mysql-community-client-8.0.21-1.el7.x86_64.rpm
-wget http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/MySQL-8.0/mysql-community-common-8.0.21-1.el7.x86_64.rpm
-wget http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/MySQL-8.0/mysql-community-libs-8.0.21-1.el7.x86_64.rpm
-wget http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/MySQL-8.0/mysql-community-devel-8.0.21-1.el7.x86_64.rpm
+wget http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/MySQL-8.0/mysql-community-server-8.0.29-1.el7.x86_64.rpm
+wget http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/MySQL-8.0/mysql-community-client-8.0.29-1.el7.x86_64.rpm
+wget http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/MySQL-8.0/mysql-community-common-8.0.29-1.el7.x86_64.rpm
+wget http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/MySQL-8.0/mysql-community-libs-8.0.29-1.el7.x86_64.rpm
+wget http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/MySQL-8.0/mysql-community-devel-8.0.29-1.el7.x86_64.rpm
 
-rpm -ivh mysql-community-libs-8.0.21-1.el7.x86_64.rpm
-rpm -ivh mysql-community-common-8.0.21-1.el7.x86_64.rpm
-rpm -ivh mysql-community-client-8.0.21-1.el7.x86_64.rpm
-rpm -ivh mysql-community-server-8.0.21-1.el7.x86_64.rpm
-rpm -ivh mysql-community-devel-8.0.21-1.el7.x86_64.rpm
+rpm -ivh mysql-community-libs-8.0.29-1.el7.x86_64.rpm
+rpm -ivh mysql-community-common-8.0.29-1.el7.x86_64.rpm
+rpm -ivh mysql-community-client-8.0.29-1.el7.x86_64.rpm
+rpm -ivh mysql-community-server-8.0.29-1.el7.x86_64.rpm
+rpm -ivh mysql-community-devel-8.0.29-1.el7.x86_64.rpm
 
 # cnf 配置
 vi /etc/my.cnf
