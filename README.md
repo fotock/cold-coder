@@ -45,9 +45,9 @@
 <br>
 
 ```swift
-me = Person()
-while (me.awake) {
-    me.code()
+I = Person()
+while (I.awake) {
+    I.code()
 }
 ```
 
