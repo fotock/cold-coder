@@ -93,16 +93,6 @@ http {
 
     server_tokens off;
 
-    add_header X-Frame-Options "SAMEORIGIN" always;
-    add_header X-XSS-Protection "1; mode=block" always;
-    add_header X-Content-Type-Options "nosniff" always;
-    add_header Referrer-Policy "no-referrer-when-downgrade" always;
-    add_header Content-Security-Policy "default-src * data: 'unsafe-eval' 'unsafe-inline'" always;
-    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
-
-    # 允许内容来源. 需自行按实际情况修改: 如允许百度统计、腾讯统计、公共 css/js CDN等
-    #add_header Content-Security-Policy "default-src 'self'; script-src 'self' https://ssl.google-analytics.com; img-src 'self' https://ssl.google-analytics.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://themes.googleusercontent.com; frame-src 'none'; object-src 'none'";
-
     include conf.d/site*;
 }
 ```
@@ -162,6 +152,16 @@ ssl_trusted_certificate /web/soft/nginx/ssl/abc.com.ca-intermediates;
 
 # 获得A+评级必不可少. 15768000 = 6个月
 add_header Strict-Transport-Security "max-age=15768000; includeSubdomains" always;
+
+add_header X-Frame-Options "DENY" always;
+add_header Referrer-Policy "no-referrer-when-downgrade" always;
+add_header X-Content-Type-Options "nosniff" always;
+add_header X-XSS-Protection "1; mode=block" always;
+add_header Permissions-Policy "geolocation=(self), microphone=()" always;
+add_header Content-Security-Policy "script-src 'self' https: data: blob:" always;
+
+# 允许内容来源. 需自行按实际情况修改: 如允许百度统计、腾讯统计、公共 css/js CDN等
+#add_header Content-Security-Policy "default-src 'self'; script-src 'self' https://ssl.google-analytics.com; img-src 'self' https://ssl.google-analytics.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://themes.googleusercontent.com; frame-src 'none'; object-src 'none'";
 ```
 
 ### 说明
