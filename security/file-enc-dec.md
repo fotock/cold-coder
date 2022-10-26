@@ -1,0 +1,19 @@
+# 文件加密与解密
+
+## OpenSSL 方式 (支持大文件方案)
+
+### 代码
+
+```bash
+#生成证书
+openssl req -x509 -nodes -days 365000 -newkey rsa:8192  -keyout privatekey.pem  -out publickey.pem
+
+#加密
+openssl smime -encrypt -aes256 -binary -outform DEM -in largeFile.tgz -out largeFile_enc.tgz publickey.pem
+
+#解密
+openssl smime -decrypt -binary -inform DEM -inkey privatekey.pem -in largeFile_enc.tgz -out largeFile_dec.tgz
+```
+### 性能
+
+MacOSX 2021(M1)，文件大小 476MB。加密用时 2.9s，解密用时 2.6s。
