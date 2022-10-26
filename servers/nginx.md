@@ -134,16 +134,20 @@ ssl_protocols  TLSv1.2;
 
 ssl_certificate          /web/soft/nginx/ssl/abc.com.crt;
 ssl_certificate_key      /web/soft/nginx/ssl/abc.com.key;
+ssl_dhparam /web/ssl/dh4096.pem;
 
 # 不推荐使用 builtin:1000. 1MB共享缓存可容纳约4000个会话
 ssl_session_cache shared:SSL:80m;
 ssl_session_timeout 1d;
 ssl_session_tickets off;
 ssl_buffer_size 64k;
+ 
+#ssl_ciphers ECDHE-PSK:ECDHE-ECDSA:ECDHE-RSA:ECDH:AES:HIGH:!NULL:!aNULL:!EXPORT:!CAMELLIA:!MD5:!PSK:!ADH:!RC4:!DH:!DHE;
 
-ssl_ciphers ECDHE-PSK:ECDHE-ECDSA:ECDHE-RSA:ECDH:AES:HIGH:!NULL:!aNULL:!EXPORT:!CAMELLIA:!MD5:!PSK:!ADH:!RC4:!DH:!DHE;
+#最安全，不支持太旧的浏览器
+ssl_ciphers EECDH+AESGCM:EDH+AESGCM;
+
 ssl_prefer_server_ciphers on;
-
 ssl_stapling on;
 ssl_stapling_verify on;
 
@@ -158,7 +162,7 @@ add_header Referrer-Policy "no-referrer-when-downgrade" always;
 add_header X-Content-Type-Options "nosniff" always;
 add_header X-XSS-Protection "1; mode=block" always;
 add_header Permissions-Policy "geolocation=(self), microphone=()" always;
-add_header Content-Security-Policy "script-src 'self' https: data: blob:" always;
+add_header Content-Security-Policy "default-src 'self' https:; img-src: https: data: blob:" always;
 
 # 允许内容来源. 需自行按实际情况修改: 如允许百度统计、腾讯统计、公共 css/js CDN等
 #add_header Content-Security-Policy "default-src 'self'; script-src 'self' https://ssl.google-analytics.com; img-src 'self' https://ssl.google-analytics.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://themes.googleusercontent.com; frame-src 'none'; object-src 'none'";
@@ -166,7 +170,7 @@ add_header Content-Security-Policy "script-src 'self' https: data: blob:" always
 
 ### 说明
 
-第1. 关于 DH params, 可以生成4096位的。嫌麻烦，干脆禁用它。
+第1. 关于 DH params, 可以生成4096位的。（如果嫌麻烦，可以不用它）
 
 ```bash
 cd /etc/ssl/certs
