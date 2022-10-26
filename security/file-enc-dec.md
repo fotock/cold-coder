@@ -17,3 +17,19 @@ openssl smime -decrypt -binary -inform DEM -inkey privatekey.pem -in largeFile_e
 ### 性能
 
 MacOSX 2021(M1)，文件大小 476MB。加密用时 2.9s，解密用时 2.6s。
+
+### Mac bash
+
+``` bash
+#! /bin/bash
+
+perl -MTime::HiRes=time -e 'printf "%.9f\n", time'
+
+openssl  smime  -encrypt -aes256 -binary -outform DEM -in a.mkv -out  a_enc.mkv  publickey.pem
+
+perl -MTime::HiRes=time -e 'printf "%.9f\n", time'
+
+openssl  smime -decrypt -binary -inform DEM -inkey privatekey.pem -in a_enc.mkv -out a_dec.mkv
+
+perl -MTime::HiRes=time -e 'printf "%.9f\n", time'
+```
