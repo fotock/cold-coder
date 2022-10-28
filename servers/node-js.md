@@ -101,6 +101,9 @@ pm2 delete   <app_name|id|'all'|json_conf>
 pm2 monit
 pm2 list
 pm2 status
+
+#修复pm2一直自动重启
+pm2 update
 ```
 
 #### pm2 开机启动/禁用
