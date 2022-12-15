@@ -31,3 +31,6 @@ openssl pkcs12 -export -in client-cert.pem -inkey client-key.pem -out client.p12
 ```bash
 openssl s_client -connect domain.com:443 -state -debug -cert client.pem -key client.key
 ```
+### 参考资料
+
+1. Gist [https://gist.github.com/welshstew/536e6b77f40e890c01a52b9172e84c11#file-generate-certificates-sh]
