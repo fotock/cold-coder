@@ -25,3 +25,9 @@ openssl req -new -out client-req.csr -key client-key.pem
 openssl x509 -req -in client-req.csr -out client-cert.pem -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -days 3650
 openssl pkcs12 -export -in client-cert.pem -inkey client-key.pem -out client.p12
 ```
+
+# 可用性验证
+
+```bash
+openssl s_client -connect domain.com:443 -state -debug -cert client.pem -key client.key
+```
