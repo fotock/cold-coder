@@ -46,3 +46,4 @@ openssl s_client -connect domain.com:443 -state -debug -cert client.pem -key cli
 ### 参考资料
 
 1. Gist [https://gist.github.com/welshstew/536e6b77f40e890c01a52b9172e84c11#file-generate-certificates-sh]
+2. medium [https://mcilis.medium.com/how-to-create-a-self-signed-client-certificate-with-openssl-c4af9ac03e99]
