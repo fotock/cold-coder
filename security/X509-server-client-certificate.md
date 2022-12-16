@@ -8,6 +8,9 @@ openssl req -new -out ca-req.csr -key ca-key.pem
 openssl x509 -req -in ca-req.csr -out ca-cert.pem -signkey ca-key.pem -days 3650
 ```
 
+根证书的Common Name可填写为 root. 所有客户端和服务器端的证书这个字段需要填写域名或者ip，一定要注意的是，根证书的这个字段和客户端证书、服务器端证书不能一样。
+
+
 ## 2 创建 Server证书
 
 ```bash
