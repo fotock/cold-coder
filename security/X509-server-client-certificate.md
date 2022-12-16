@@ -20,13 +20,22 @@ openssl x509 -req -in server-req.csr -out server-cert.pem -CA ca-cert.pem -CAkey
 openssl pkcs12 -export -in server-cert.pem -inkey server-key.pem -out server.p12
 ```
 
-## 2 创建 Client 证书
+## 3 创建 Client 证书
 
 ```bash
 openssl genrsa -out client-key.pem 4096
 openssl req -new -out client-req.csr -key client-key.pem
 openssl x509 -req -in client-req.csr -out client-cert.pem -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -days 3650
 openssl pkcs12 -export -in client-cert.pem -inkey client-key.pem -out client.p12
+```
+
+## Nginx配置
+
+```conf
+ssl_certificate /etc/nginx/certs/server.crt;
+ssl_certificate_key /etc/nginx/certs/server.key;
+ssl_client_certificate /etc/nginx/certs/ca.crt; 
+ssl_verify_client on;
 ```
 
 # 可用性验证
