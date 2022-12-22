@@ -50,5 +50,7 @@ openssl s_client -connect domain.com:443 -state -debug -cert client.pem -key cli
 ## 参考资料
 
 1. [Setup & verify mutual TLS authentication (MTLS) with openssl](https://www.golinuxcloud.com/mutual-tls-authentication-mtls/)
-2. [Gist](https://gist.github.com/welshstew/536e6b77f40e890c01a52b9172e84c11#file-generate-certificates-sh)
-3. [medium](https://mcilis.medium.com/how-to-create-a-self-signed-client-certificate-with-openssl-c4af9ac03e99)
+2. [OpenSSL create certificate chain with Root & Intermediate CA](https://www.golinuxcloud.com/openssl-create-certificate-chain-linux/)
+3. [OpenSSL: Generate ECC certificate](https://www.golinuxcloud.com/openssl-generate-ecc-certificate/)
+4. [Gist](https://gist.github.com/welshstew/536e6b77f40e890c01a52b9172e84c11#file-generate-certificates-sh)
+5. [medium](https://mcilis.medium.com/how-to-create-a-self-signed-client-certificate-with-openssl-c4af9ac03e99)
