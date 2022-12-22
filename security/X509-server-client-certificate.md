@@ -1,6 +1,6 @@
 # OpenSSL 生成自签名的服务器端和客户端证书
 
-## 1 创建CA证书
+## 1 创建CA根证书
 
 ```bash
 openssl genrsa -out ca-key.pem 4096
@@ -8,8 +8,9 @@ openssl req -new -out ca-req.csr -key ca-key.pem
 openssl x509 -req -in ca-req.csr -out ca-cert.pem -signkey ca-key.pem -days 3650
 ```
 
-根证书的Common Name可填写为 root. 所有客户端和服务器端的证书这个字段需要填写域名或者ip，一定要注意的是，根证书的这个字段和客户端证书、服务器端证书不能一样。
-
+- CA根证书的Common Name可填写为 root. 
+- 所有客户端和服务器端的证书Common Name字段需要填写域名或者ip，但不能与根证书的这个字段一样。
+- 所有客户端和服务器端的证书Country, State and Organization Name 必须与 CA 根证书一致。
 
 ## 2 创建 Server证书
 
@@ -45,5 +46,6 @@ openssl s_client -connect domain.com:443 -state -debug -cert client.pem -key cli
 ```
 ### 参考资料
 
-1. Gist [https://gist.github.com/welshstew/536e6b77f40e890c01a52b9172e84c11#file-generate-certificates-sh]
-2. medium [https://mcilis.medium.com/how-to-create-a-self-signed-client-certificate-with-openssl-c4af9ac03e99]
+1. [Setup & verify mutual TLS authentication (MTLS) with openssl](https://www.golinuxcloud.com/mutual-tls-authentication-mtls/)
+2. [Gist](https://gist.github.com/welshstew/536e6b77f40e890c01a52b9172e84c11#file-generate-certificates-sh)
+3. [medium](https://mcilis.medium.com/how-to-create-a-self-signed-client-certificate-with-openssl-c4af9ac03e99)
