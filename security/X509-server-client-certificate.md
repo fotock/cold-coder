@@ -47,7 +47,7 @@ ssl_verify_client on;
 openssl s_client -connect domain.com:443 -state -debug -cert client.pem -key client.key
 ```
 
-### 参考资料
+## 参考资料
 
 1. [Setup & verify mutual TLS authentication (MTLS) with openssl](https://www.golinuxcloud.com/mutual-tls-authentication-mtls/)
 2. [Gist](https://gist.github.com/welshstew/536e6b77f40e890c01a52b9172e84c11#file-generate-certificates-sh)
