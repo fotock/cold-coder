@@ -1,5 +1,11 @@
 # OpenSSL 生成自签名的服务器端和客户端证书
 
+## 第三方颁发的证书
+
+从Digicert等机构购买的 DV 证书，Subject 信息只含有 Common Name，也就是你申请的域名，不含有 Country, State and Organization Name等信息。
+
+如需此信息在证书里显示，需要购买OV/EV证书。
+
 ## 创建证书
 
 ### 1 创建CA根证书
