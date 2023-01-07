@@ -47,10 +47,20 @@ ssl_client_certificate /etc/nginx/certs/ca.crt;
 ssl_verify_client on;
 ```
 
-## 可用性验证
+## openssl 命令
 
 ```bash
+#可用性验证
 openssl s_client -connect domain.com:443 -state -debug -cert client.pem -key client.key
+
+#查看所有信息
+openssl pkcs12 -info -in in.p12 -nodes
+
+#导出证书
+openssl pkcs12 -in in.p12 -out cert.pem -nokeys
+
+#导出秘钥
+openssl pkcs12 -in in.p12 -out key.pem -nodes -nocerts
 ```
 
 ## 参考资料
