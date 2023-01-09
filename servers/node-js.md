@@ -177,7 +177,7 @@ module.exports = {
 待部署服务器主要配置git
 
 ```bash
-ssh-keygen -t ed25519 -C 'shelley@sanfriend.com'
+ssh-keygen -t ed25519 -C 'abc@def.com'
 ```
 
 将 .ssh/id_ed25519.pub 的内容放到git服务器或对应项目的配置中。
