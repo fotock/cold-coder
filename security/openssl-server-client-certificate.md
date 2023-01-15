@@ -25,7 +25,7 @@ openssl x509 -req -in ca-req.csr -out ca-cert.pem -signkey ca-key.pem -days 3650
 ```bash
 openssl genrsa -out server-key.pem 4096
 openssl req -new -out server-req.csr -key server-key.pem
-openssl x509 -req -in server-req.csr -out server-cert.pem -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -days 3650
+openssl x509 -sha256 -req -in server-req.csr -out server-cert.pem -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -days 3650
 openssl pkcs12 -export -in server-cert.pem -inkey server-key.pem -out server.p12
 ```
 
@@ -34,7 +34,7 @@ openssl pkcs12 -export -in server-cert.pem -inkey server-key.pem -out server.p12
 ```bash
 openssl genrsa -out client-key.pem 4096
 openssl req -new -out client-req.csr -key client-key.pem
-openssl x509 -req -in client-req.csr -out client-cert.pem -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -days 3650
+openssl x509 -sha256 -req -in client-req.csr -out client-cert.pem -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -days 3650
 openssl pkcs12 -export -in client-cert.pem -inkey client-key.pem -out client.p12
 ```
 
@@ -52,6 +52,9 @@ ssl_verify_client on;
 ```bash
 #可用性验证
 openssl s_client -connect domain.com:443 -state -debug -cert client.pem -key client.key
+
+#查看证书信息
+openssl x509 -in server.crt -noout -text
 
 #查看所有信息
 openssl pkcs12 -info -in in.p12 -nodes
