@@ -8,8 +8,8 @@
 #生成证书 (如需密码，去掉 -nodes 参数)
 openssl req -x509 -nodes -days 365000 -newkey rsa:8192  -keyout privatekey.pem  -out publickey.pem
 
-#加密
-openssl smime -encrypt -aes256 -binary -outform DEM -in largeFile.tgz -out largeFile_enc.tgz publickey.pem
+#加密 (如果支持，优先使用gcm)
+openssl smime -encrypt -aes-256-gcm -binary -outform DEM -in largeFile.tgz -out largeFile_enc.tgz publickey.pem
 
 #解密
 
