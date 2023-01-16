@@ -30,7 +30,7 @@ MacOSX 2021(M1)，文件大小 476MB。加密用时 2.9s，解密用时 2.6s。
 
 perl -MTime::HiRes=time -e 'printf "%.9f\n", time'
 
-openssl  smime  -encrypt -aes256 -binary -outform DER -in a.mkv -out  a_enc.mkv  publickey.pem
+openssl  smime  -encrypt -aes-256-gcm -binary -outform DER -in a.mkv -out  a_enc.mkv  publickey.pem
 
 perl -MTime::HiRes=time -e 'printf "%.9f\n", time'
 
