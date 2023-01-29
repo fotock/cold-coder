@@ -1,3 +1,4 @@
+
 # OpenSSL 生成自签名的服务器端和客户端证书
 
 ## 第三方证书
@@ -22,19 +23,41 @@ openssl x509 -sha256 -req -in ca-req.csr -out ca-cert.pem -signkey ca-key.pem -d
 
 ### 2 创建 Server证书
 
+cat client_cert_ext.cnf 
+```conf
+basicConstraints = CA:FALSE
+nsCertType = server
+nsComment = "OpenSSL Generated Server Certificate"
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid,issuer:always
+keyUsage = critical, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+```
+
 ```bash
 openssl genrsa -aes256 -out server-key.pem 4096
-openssl req -new -sha256 -out server-req.csr -key server-key.pem
-openssl x509 -sha256 -req -in server-req.csr -out server-cert.pem -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -days 3650 -outform PEM
+openssl req -new -sha256 -out server-req.csr -key server-key.pem -config openssl.cnf
+openssl x509 -sha256 -req -in server-req.csr -out server-cert.pem -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -days 3650 -outform PEM -extfile server_cert_ext.cnf
 openssl pkcs12 -export -in server-cert.pem -inkey server-key.pem -out server.p12
 ```
 
 ### 3 创建 Client 证书
 
+cat client_cert_ext.cnf 
+```conf
+basicConstraints = CA:FALSE
+nsCertType = client, email
+nsComment = "OpenSSL Generated Client Certificate"
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid,issuer
+keyUsage = critical, nonRepudiation, digitalSignature, keyEncipherment
+extendedKeyUsage = clientAuth, emailProtection
+```
+
 ```bash
 openssl genrsa -aes256 -out client-key.pem 4096
 openssl req -new -sha256 -out client-req.csr -key client-key.pem -config openssl.cnf -extensions v3_req
-openssl x509 -sha256 -req -in client-req.csr -out client-cert.pem -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -days 3650 -outform PEM -config openssl.cnf -extensions v3_req
+openssl x509 -sha256 -req -in client-req.csr -out client-cert.pem -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -days 3650 -outform PEM -extfile client_cert_ext.cnf
 openssl pkcs12 -export -in client-cert.pem -inkey client-key.pem -out client.p12
 ```
 
