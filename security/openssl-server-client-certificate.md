@@ -13,7 +13,7 @@
 ```bash
 openssl genrsa -aes256 -out ca-key.pem 4096
 openssl req -new -sha256 -out ca-req.csr -key ca-key.pem -config openssl.cnf -extensions v3_ca
-openssl x509 -sha256 -req -in ca-req.csr -out ca-cert.pem -signkey ca-key.pem -days 3650
+openssl x509 -sha256 -req -in ca-req.csr -out ca-cert.pem -signkey ca-key.pem -days 3650 -outform PEM
 ```
 
 - CA根证书的Common Name可填写为 root. 
@@ -25,7 +25,7 @@ openssl x509 -sha256 -req -in ca-req.csr -out ca-cert.pem -signkey ca-key.pem -d
 ```bash
 openssl genrsa -aes256 -out server-key.pem 4096
 openssl req -new -sha256 -out server-req.csr -key server-key.pem
-openssl x509 -sha256 -req -in server-req.csr -out server-cert.pem -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -days 3650
+openssl x509 -sha256 -req -in server-req.csr -out server-cert.pem -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -days 3650 -outform PEM
 openssl pkcs12 -export -in server-cert.pem -inkey server-key.pem -out server.p12
 ```
 
@@ -34,7 +34,7 @@ openssl pkcs12 -export -in server-cert.pem -inkey server-key.pem -out server.p12
 ```bash
 openssl genrsa -aes256 -out client-key.pem 4096
 openssl req -new -sha256 -out client-req.csr -key client-key.pem
-openssl x509 -sha256 -req -in client-req.csr -out client-cert.pem -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -days 3650
+openssl x509 -sha256 -req -in client-req.csr -out client-cert.pem -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -days 3650 -outform PEM
 openssl pkcs12 -export -in client-cert.pem -inkey client-key.pem -out client.p12
 ```
 
