@@ -12,7 +12,7 @@
 
 ```bash
 openssl genrsa -aes256 -out ca-key.pem 4096
-openssl req -new -sha256 -out ca-req.csr -key ca-key.pem 
+openssl req -new -sha256 -out ca-req.csr -key ca-key.pem -config openssl.cnf -extensions v3_ca
 openssl x509 -sha256 -req -in ca-req.csr -out ca-cert.pem -signkey ca-key.pem -days 3650
 ```
 
