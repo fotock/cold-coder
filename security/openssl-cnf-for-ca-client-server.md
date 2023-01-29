@@ -1,3 +1,4 @@
+```conf
 HOME			= .
 openssl_conf = openssl_init
 config_diagnostics = 1
@@ -168,3 +169,4 @@ subject = "/CN=openssl-cmp-test"
 newkey = insta.priv.pem
 out_trusted = insta.ca.crt
 certout = insta.cert.pem
+```
