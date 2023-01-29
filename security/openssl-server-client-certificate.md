@@ -13,7 +13,7 @@
 ```bash
 openssl genrsa -aes256 -out ca-key.pem 4096
 openssl req -new -sha256 -out ca-req.csr -key ca-key.pem 
-openssl x509 -req -in ca-req.csr -out ca-cert.pem -signkey ca-key.pem -days 3650
+openssl x509 -sha256 -req -in ca-req.csr -out ca-cert.pem -signkey ca-key.pem -days 3650
 ```
 
 - CA根证书的Common Name可填写为 root. 
