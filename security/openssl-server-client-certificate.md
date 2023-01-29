@@ -9,6 +9,8 @@
 
 ## 自建证书
 
+openssl.cnf 参见 [cnf示例或参考资料1/2](openssl-cnf-for-ca-client-server.md)
+
 ### 1 创建CA根证书
 
 ```bash
