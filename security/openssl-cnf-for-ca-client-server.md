@@ -94,13 +94,13 @@ countryName_min			= 2
 countryName_max			= 2
 
 stateOrProvinceName		= State or Province Name (full name)
-stateOrProvinceName_default	= Beijing
+stateOrProvinceName_default	= State
 
 localityName			= Locality Name (eg, city)
-localityName_default		= Beijing
+localityName_default		= City
 
 0.organizationName		= Organization Name (eg, company)
-0.organizationName_default	= Y1Tech
+0.organizationName_default	= MyOrg
 
 organizationalUnitName		= Organizational Unit Name (eg, section)
 #organizationalUnitName_default	=
