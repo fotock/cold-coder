@@ -89,6 +89,9 @@ openssl pkcs12 -in in.p12 -out cert.pem -nokeys
 
 #导出秘钥
 openssl pkcs12 -in in.p12 -out key.pem -nodes -nocerts
+
+#curl查看证书和连接
+curl --key client-key.pem --cert client-cert.pem --cacert ca-cert.pem https://xxx/xxx -v
 ```
 
 ## 参考资料
