@@ -19,7 +19,7 @@ openssl req -sha256 -new -x509 -days 3650 -outform PEM -key root-key.pem -out ro
 ```
 
 - CA根证书的Common Name可填写为 MyCompany Root CA. 
-- 
+
 ### 2 创建CA（中间）证书
 
 ```bash
