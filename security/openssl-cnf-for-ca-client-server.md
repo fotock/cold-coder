@@ -1,25 +1,7 @@
 ```conf
 HOME			= .
-openssl_conf = openssl_init
-config_diagnostics = 1
-oid_section = new_oids
-
-[openssl_init]
-providers = provider_sect
-ssl_conf = ssl_module
-
-[ ssl_module ]
-system_default = crypto_policy
-
-[ crypto_policy ]
-
-.include = /etc/crypto-policies/back-ends/opensslcnf.config
-
-[ ca ]
-default_ca	= CA_default		# The default ca section
 
 [ CA_default ]
-
 dir		= .		# Where everything is kept
 certs		= $dir/certs		# Where the issued certs are kept
 crl_dir		= $dir/crl		# Where the issued crl are kept
@@ -37,8 +19,6 @@ private_key	= $dir/private/cakey.pem # The private key
 
 x509_extensions	= usr_cert		# The extensions to add to the cert
 
-# Comment out the following two lines for the "traditional"
-# (and highly broken) format.
 name_opt 	= ca_default		# Subject Name options
 cert_opt 	= ca_default		# Certificate field options
 
@@ -47,12 +27,8 @@ default_crl_days= 30			# how long before next CRL
 default_md	= sha256		# use SHA-256 by default
 preserve	= no			# keep passed DN ordering
 
-# A few difference way of specifying how similar the request should look
-# For type CA, the listed attributes must be the same, and the optional
-# and supplied fields are just that :-)
 policy		= policy_match
 
-# For the CA policy
 [ policy_match ]
 countryName		= match
 stateOrProvinceName	= match
@@ -61,9 +37,6 @@ organizationalUnitName	= optional
 commonName		= supplied
 emailAddress		= optional
 
-# For the 'anything' policy
-# At this point in time, you must list all acceptable 'object'
-# types.
 [ policy_anything ]
 countryName		= optional
 stateOrProvinceName	= optional
@@ -79,7 +52,6 @@ default_bits		= 4096
 default_md		= sha256
 default_keyfile 	= privkey.pem
 distinguished_name	= req_distinguished_name
-attributes		= req_attributes
 x509_extensions	= v3_ca	# The extensions to add to the self signed cert
 
 # WARNING: ancient versions of Netscape crash on BMPStrings or UTF8Strings.
@@ -94,13 +66,13 @@ countryName_min			= 2
 countryName_max			= 2
 
 stateOrProvinceName		= State or Province Name (full name)
-stateOrProvinceName_default	= State
+stateOrProvinceName_default	= Beijing
 
 localityName			= Locality Name (eg, city)
-localityName_default		= City
+localityName_default		= Beijing
 
 0.organizationName		= Organization Name (eg, company)
-0.organizationName_default	= MyOrg
+0.organizationName_default	= MyCompany
 
 organizationalUnitName		= Organizational Unit Name (eg, section)
 #organizationalUnitName_default	=
@@ -110,13 +82,6 @@ commonName_max			= 64
 emailAddress			= Email Address
 emailAddress_max		= 64
 
-[ req_attributes ]
-challengePassword		= A challenge password
-challengePassword_min		= 4
-challengePassword_max		= 20
-
-unstructuredName		= An optional company name
-
 [ usr_cert ]
 basicConstraints=CA:FALSE
 subjectKeyIdentifier=hash
@@ -124,16 +89,9 @@ authorityKeyIdentifier=keyid,issuer
 
 [ v3_req ]
 basicConstraints = CA:FALSE
-nsCertType = client, email
-nsComment = "OpenSSL Generated Client Certificate"
-subjectKeyIdentifier = hash
-authorityKeyIdentifier = keyid,issuer
-keyUsage = critical, nonRepudiation, digitalSignature, keyEncipherment
-extendedKeyUsage = clientAuth, emailProtection
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
 
 [ v3_ca ]
-# Extensions for a typical CA
-# PKIX recommendation.
 subjectKeyIdentifier=hash
 authorityKeyIdentifier=keyid:always,issuer
 basicConstraints = critical,CA:true
@@ -143,30 +101,4 @@ subjectKeyIdentifier = hash
 authorityKeyIdentifier = keyid:always,issuer
 basicConstraints = critical, CA:true, pathlen:0
 keyUsage = critical, digitalSignature, cRLSign, keyCertSign
-
-[insta] # CMP using Insta Demo CA
-# Message transfer
-server = pki.certificate.fi:8700
-# proxy = # set this as far as needed, e.g., http://192.168.1.1:8080
-# tls_use = 0
-path = pkix/
-
-# Server authentication
-recipient = "/C=FI/O=Insta Demo/CN=Insta Demo CA" # or set srvcert or issuer
-ignore_keyusage = 1 # potentially needed quirk
-unprotected_errors = 1 # potentially needed quirk
-extracertsout = insta.extracerts.pem
-
-# Client authentication
-ref = 3078 # user identification
-secret = pass:insta # can be used for both client and server side
-
-# Generic message options
-cmd = ir # default operation, can be overridden on cmd line with, e.g., kur
-
-# Certificate enrollment
-subject = "/CN=openssl-cmp-test"
-newkey = insta.priv.pem
-out_trusted = insta.ca.crt
-certout = insta.cert.pem
 ```
