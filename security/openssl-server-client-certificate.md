@@ -14,12 +14,20 @@ openssl.cnf 参见 [cnf示例或参考资料1/2](openssl-cnf-for-ca-client-serve
 ### 1 创建CA根证书
 
 ```bash
+openssl genrsa -out root-key.pem 8192
+openssl req -sha256 -new -x509 -days 3650 -outform PEM -key root-key.pem -out root-cert.pem
+```
+
+- CA根证书的Common Name可填写为 MyCompany Root CA. 
+- 
+### 1 创建CA（中间）证书
+
+```bash
 openssl genrsa -aes256 -out ca-key.pem 4096
 openssl req -new -sha256 -out ca-req.csr -key ca-key.pem -config openssl.cnf -extensions v3_ca
 openssl x509 -sha256 -req -in ca-req.csr -out ca-cert.pem -signkey ca-key.pem -days 3650 -outform PEM  -extensions v3_ca
 ```
 
-- CA根证书的Common Name可填写为 root. 
 - 所有客户端和服务器端的证书Common Name字段需要填写域名或者ip，但不能与根证书的这个字段一样。
 - 所有客户端和服务器端的证书Country, State and Organization Name 必须与 CA 根证书一致。
 
