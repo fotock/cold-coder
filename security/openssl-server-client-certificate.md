@@ -20,7 +20,7 @@ openssl req -sha256 -new -x509 -days 3650 -outform PEM -key root-key.pem -out ro
 
 - CA根证书的Common Name可填写为 MyCompany Root CA. 
 - 
-### 1 创建CA（中间）证书
+### 2 创建CA（中间）证书
 
 ```bash
 openssl genrsa -aes256 -out ca-key.pem 4096
@@ -31,7 +31,7 @@ openssl x509 -sha256 -req -in ca-req.csr -out ca-cert.pem -signkey ca-key.pem -d
 - 所有客户端和服务器端的证书Common Name字段需要填写域名或者ip，但不能与根证书的这个字段一样。
 - 所有客户端和服务器端的证书Country, State and Organization Name 必须与 CA 根证书一致。
 
-### 2 创建 Server证书
+### 3 创建 Server证书
 
 cat server_cert_ext.cnf 
 ```conf
@@ -51,7 +51,7 @@ openssl x509 -sha256 -req -in server-req.csr -out server-cert.pem -CA ca-cert.pe
 openssl pkcs12 -export -in server-cert.pem -inkey server-key.pem -out server.p12
 ```
 
-### 3 创建 Client 证书
+### 4 创建 Client 证书
 
 cat client_cert_ext.cnf 
 ```conf
@@ -77,7 +77,18 @@ openssl pkcs12 -export -in client-cert.pem -inkey client-key.pem -out client.p12
 ssl_certificate /etc/nginx/certs/server.crt;
 ssl_certificate_key /etc/nginx/certs/server.key;
 ssl_client_certificate /etc/nginx/certs/ca.crt; 
-ssl_verify_client on;
+
+ssl_verify_client optional;
+ssl_verify_depth 1;
+
+location @doProxy{
+  proxy_pass  http://upstream;
+                
+  proxy_set_header SSL-ClientIDN $ssl_client_i_dn;
+  proxy_set_header SSL-ClientSDN $ssl_client_s_dn;
+  proxy_set_header SSL-ClientSerial $ssl_client_serial;
+  proxy_set_header SSL-Verify $ssl_client_verify;
+}
 ```
 
 ## openssl 命令
