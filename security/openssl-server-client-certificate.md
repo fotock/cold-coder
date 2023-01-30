@@ -25,7 +25,7 @@ openssl x509 -sha256 -req -in ca-req.csr -out ca-cert.pem -signkey ca-key.pem -d
 
 ### 2 创建 Server证书
 
-cat client_cert_ext.cnf 
+cat server_cert_ext.cnf 
 ```conf
 basicConstraints = CA:FALSE
 nsCertType = server
