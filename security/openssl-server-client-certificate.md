@@ -78,6 +78,12 @@ ssl_verify_client on;
 #可用性验证
 openssl s_client -connect domain.com:443 -state -debug -cert client.pem -key client.key
 
+#curl查看证书和连接
+curl --key client-key.pem --cert client-cert.pem --cacert ca-cert.pem https://xxx/xxx -v
+
+#导出无需密码的key
+openssl rsa -in server-key.pem -out server-key-nopass.pem
+
 #查看证书信息
 openssl x509 -in server.crt -noout -text
 
@@ -89,9 +95,6 @@ openssl pkcs12 -in in.p12 -out cert.pem -nokeys
 
 #导出秘钥
 openssl pkcs12 -in in.p12 -out key.pem -nodes -nocerts
-
-#curl查看证书和连接
-curl --key client-key.pem --cert client-cert.pem --cacert ca-cert.pem https://xxx/xxx -v
 ```
 
 ## 参考资料
