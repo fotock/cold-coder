@@ -1,4 +1,3 @@
-
 # OpenSSL 生成自签名的服务器端和客户端证书
 
 ## 第三方证书
@@ -11,6 +10,8 @@
 
 openssl.cnf 参见 [cnf示例或参考资料1/2](openssl-cnf-for-ca-client-server.md)
 
+使用方法1或2.
+
 ### 1.1 创建CA根证书
 
 ```bash
@@ -22,13 +23,26 @@ openssl req -sha256 -new -x509 -days 3650 -outform PEM -key root-key.pem -out ro
 
 ### 1.2 创建CA中间证书
 
+[Create Certificate Chain (bundle)](https://www.golinuxcloud.com/openssl-create-certificate-chain-linux/)
+
 ```bash
-openssl genrsa -aes256 -out ca-key.pem 4096
+mkdir intermediate
+cd intermediate
+
+touch index.txt
+echo 01 > serial
+mkdir newcerts
+echo 01 > crlnumber
+
+openssl genrsa (-aes256) -out ca-key.pem 4096
 openssl req -new -sha256 -out ca-req.csr -key ca-key.pem -config openssl.cnf -extensions v3_ca
-openssl x509 -sha256 -req -in ca-req.csr -out ca-cert.pem -signkey ca-key.pem -days 3650 -outform PEM  -extensions v3_ca
+openssl ca -config openssl.cnf -extensions v3_intermediate_ca -notext -batch -in ca-req.csr -out ca-cert.pem -keyfile ../root/root-key.pem -cert ../root/root-cert.pem
+
+openssl x509 -in ca-cert.pem -out ca-cert.pem -outform PEM
+cat ca-cert.pem ../root/root-cert.pem > ca-bundle.pem
 ```
 
-### 2 直接创建CA根证书
+### 2 直接创建CA根证书 (不使用中间证书)
 
 ```bash
 openssl genrsa -aes256 -out ca-key.pem 4096
@@ -48,7 +62,7 @@ nsCertType = server
 nsComment = "OpenSSL Generated Server Certificate"
 subjectKeyIdentifier = hash
 authorityKeyIdentifier = keyid,issuer:always
-keyUsage = critical, digitalSignature, keyEncipherment
+keyUsage = digitalSignature, keyEncipherment, dataEncipherment, nonRepudiation
 extendedKeyUsage = serverAuth
 ```
 
@@ -68,8 +82,8 @@ nsCertType = client, email
 nsComment = "OpenSSL Generated Client Certificate"
 subjectKeyIdentifier = hash
 authorityKeyIdentifier = keyid,issuer
-keyUsage = critical, nonRepudiation, digitalSignature, keyEncipherment
-extendedKeyUsage = clientAuth, emailProtection
+keyUsage = critical, nonRepudiation, digitalSignature, keyEncipherment, dataEncipherment
+extendedKeyUsage = clientAuth
 ```
 
 ```bash
