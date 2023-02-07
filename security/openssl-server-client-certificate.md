@@ -4,6 +4,8 @@
 
 从Digicert等机构购买的 DV 证书，Subject 信息只含有 Common Name，也就是你申请的域名，不含有 Country, State and Organization Name等信息。
 
+如需此信息在证书里显示，需要购买OV/EV证书。
+
 ## 自建证书
 
 openssl.cnf 参见 [cnf示例或参考资料1/2](openssl-cnf-for-ca-client-server.md)
@@ -134,6 +136,9 @@ openssl pkcs12 -in in.p12 -out cert.pem -nokeys
 
 #导出秘钥
 openssl pkcs12 -in in.p12 -out key.pem -nodes -nocerts
+
+#格式转换
+openssl pkcs12 -export -in client-cert.pem -inkey client-key.pem -out client.p12
 ```
 
 ## 参考资料
