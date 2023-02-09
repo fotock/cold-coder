@@ -22,6 +22,8 @@
 
 ### 报告调查结果
 
+<img src="/assets/PurpleSec-risk-matrix-penetration-testing-report.png" alt="" width="80%">
+
 测试阶段完成后，将创建一份报告并提交给执行领导和企业主。这是任何渗透测试活动的真正价值。
 
 该报告应为减少风险敞口提供方向和指导，同时还为解决问题提供可操作的步骤。
