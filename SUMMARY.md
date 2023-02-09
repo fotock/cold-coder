@@ -23,6 +23,8 @@
   * [7.5 System](security/system.md)  
   * [7.6 网络访问安全](security/anonymous.md)
   * [7.7 文件加密](security/file-enc-dec.md)
+  * [SSL CA 证书](security/openssl-server-client-certificate.md)
+  * [渗透测试](security/penetration-test.md)
 * [8 云上观](up-in-the-cloud.md)
 * [9 善事之利器](tools-utils.md)
   * [9.1 VIM](tools/vim.md)
