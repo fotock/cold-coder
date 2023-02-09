@@ -11,34 +11,49 @@
   
 > 认证/验证一切来源数据: 包括但不限于 GET、POST、 COOKIE 等参数值。
 
+## 基础设施安全 (Infrastructure Security)
 
-## A. CSRF / XSRF / 跨站请求伪造
+基础设施渗透测试系列涵盖了渗透测试执行标准所描述的基础设施渗透测试的所有阶段 。
+
+- 情报收集：在组织的信息收集阶段执行的技术步骤，并确定攻击面区域。
+- 漏洞分析：利用metasploit-fu、nmap等工具探索一台机器不同端口上运行的不同服务。
+- Exploitation：在破坏域用户凭据后可以使用的枚举方法和在破坏管理凭据后使用的远程代码执行方法。
+- Post Exploitation ：获取管理远程 shell 后收集凭据的不同方法。此外，本节还介绍了执行后期开发以对 C 级管理人员产生高影响。
+- 报告 ：在渗透测试成功后自动编写报告的开源方法。
+- 配置审查 ：对交换机、路由器、防火墙和端点设备执行配置审查的方法。
+
+https://bitvijays.github.io/index.html
+
+## 渗透测试/Penetration Test
+
+https://purplesec.us/types-penetration-testing/
+
+## CSRF / XSRF / 跨站请求伪造
 
 - POST，加token
 - 及时清理 Cookie
 
 
-## B. SQL 入注 (Injection)
+## SQL 入注 (Injection)
 
 - 给予最小权限
 - 验证输入
 - Prepared
 
-
-## C. 操作系统安全
+## 操作系统安全
 
 - 及时更新软件
 - 只开放需要的端口. 可能的话,修改默认端口
 - 及时备份
 
-## D. 服务安全
+## 服务安全
 
 - 数据库、缓存、集群服务等内部服务, 关闭公网访问
 - 有成为别人的挖坑设备的风险的服务:
   1. Redis. 需要连接密码验证, 禁止公网访问.
   2. Jenkins. 更新成最新版本.
 
-## E. SSL / CA 证书
+## SSL / CA 证书
 
 IIS 需要在所在的 Windows 服务器上生成 CSR。
 
@@ -70,6 +85,3 @@ IIS 需要在所在的 Windows 服务器上生成 CSR。
 
   http://map.norsecorp.com
   
-## F. 渗透测试/Penetration Test
-
-https://purplesec.us/types-penetration-testing/
