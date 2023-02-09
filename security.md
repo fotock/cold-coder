@@ -11,7 +11,7 @@
   
 > 认证/验证一切来源数据: 包括但不限于 GET、POST、 COOKIE 等参数值。
 
-## 基础设施安全 (Infrastructure Security)
+## 基础设施安全/Infrastructure Security
 
 基础设施渗透测试系列涵盖了渗透测试执行标准所描述的基础设施渗透测试的所有阶段 。
 
