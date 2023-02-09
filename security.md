@@ -1,11 +1,13 @@
 # 安全安全安全
 
-> 认证/验证一切来源数据: 包括但不限于 GET、POST、 COOKIE 等参数值。
-
-<br>
-
 公网服务要经得起各种测试和攻击。从日志里可以分析各种攻击。
 腾讯的项目一般都要求可经受一天几百万次的安全检测请求。
+
+- 信息安全策略模板 （30个）
+
+  https://purplesec.us/resources/cyber-security-policy-templates/
+  
+> 认证/验证一切来源数据: 包括但不限于 GET、POST、 COOKIE 等参数值。
 
 
 ## A. CSRF / XSRF / 跨站请求伪造
@@ -65,3 +67,7 @@ IIS 需要在所在的 Windows 服务器上生成 CSR。
 - DDOS 攻击实时检测
 
   http://map.norsecorp.com
+  
+## F. 渗透测试/Penetration Test
+
+https://purplesec.us/types-penetration-testing/
