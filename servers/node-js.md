@@ -116,6 +116,8 @@ pm2 unstartup systemd
 
 #### pm2 启动文件
 
+`!!! 尽量将配置放到其他地方，如 config/config.js. 这里的重启可能会不加载env更新 !!!`
+
 echosystem.config.js, echosystem.dev.config.js
 
 ```js
