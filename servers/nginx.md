@@ -354,7 +354,7 @@ location = /404.html {
 每天日志滚动配置文件 `/etc/logrotate.d/nginx`
 
 ```conf
-/web/log/nginx/*.access.log {
+/web/log/nginx/*.log {
     copytruncate
     daily
     dateext
