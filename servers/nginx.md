@@ -349,6 +349,37 @@ location = /404.html {
 }
 ```
 
+## 日志滚动 (logrotate)
+
+每天日志滚动配置文件 `/etc/logrotate.d/nginx`
+
+```conf
+/web/log/nginx/*.access.log {
+    copytruncate
+    daily
+    dateext
+    dateformat .%Y%m%d
+    rotate 7
+    missingok
+    notifempty
+    compress
+    delaycompress
+    sharedscripts
+    olddir /web/log/nginx/daily
+    postrotate
+        /bin/kill -USR1 `cat /run/nginx.pid 2>/dev/null` 2>/dev/null || true
+        /web/script/log-compress.sh
+    endscript
+}
+```
+
+查看与调试:
+
+```bash
+/usr/sbin/logrotate -dvf /etc/logrotate.d/nginx
+```
+
+
 ## 性能测试 (ApacheBench)
 
 ### 环境1
