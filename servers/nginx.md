@@ -132,6 +132,7 @@ proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 ssl on;
 ssl_protocols  TLSv1.2;
 
+# ssl_certificate 证书内容顺序从上至下：服务器证书, 中级证书, 根证书
 ssl_certificate          /web/soft/nginx/ssl/abc.com.crt;
 ssl_certificate_key      /web/soft/nginx/ssl/abc.com.key;
 ssl_dhparam /web/ssl/dh4096.pem;
@@ -148,11 +149,21 @@ ssl_buffer_size 64k;
 ssl_ciphers EECDH+AESGCM:EDH+AESGCM;
 
 ssl_prefer_server_ciphers on;
+
+# 用于验证证书链完整验证, ssl_certificate 无 Issuer 信息的时候，此指标被忽略
 ssl_stapling on;
 ssl_stapling_verify on;
 
-# (可选. 可合并至.crt文件里)证书链完整验证. Root CA 和 Intermediate 证书
+# 可信证书：
+# 情形1. 可选. 可合并至.crt文件里，用于验证证书链完整验证. Intermediate 证书下面附上 Root CA 证书。
+# 情形2. 用于添加信任非 ssl_certificate 同一机构颁发的证书。只要客户端证书为此证书机构下发的证书都作为可信客户端。
 ssl_trusted_certificate /web/soft/nginx/ssl/abc.com.ca-intermediates;
+
+# 有客户端证书需要验证的需求时，可用 ssl_client_certificate 或者 ssl_trusted_certificate
+# ssl_client_certificate   /web/cert/intermediate-prod/ca-bundle.pem;
+# ssl_verify_client optional;
+# ssl_verify_depth 3;
+
 
 # 获得A+评级必不可少. 15768000 = 6个月
 add_header Strict-Transport-Security "max-age=15768000; includeSubdomains" always;
