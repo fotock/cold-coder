@@ -166,7 +166,7 @@ ssl_trusted_certificate /web/soft/nginx/ssl/abc.com.ca-intermediates;
 
 
 # 获得A+评级必不可少. 15768000 = 6个月
-add_header Strict-Transport-Security "max-age=15768000; includeSubdomains" always;
+add_header Strict-Transport-Security "max-age=15768000; includeSubdomains; preload" always;
 
 add_header X-Frame-Options "DENY" always;
 add_header Referrer-Policy "no-referrer-when-downgrade" always;
