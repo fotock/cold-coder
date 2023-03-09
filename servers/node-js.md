@@ -1,26 +1,10 @@
 # Node.js
 
-## 已经使用的几家公司
-
-- Amazon
-- Netflix
-- Paypal
-- Github
-- LinkedIn
-- Yahoo
-- Shutterstock
-- Ebay
-- Walmart
-- Flickr
-- Uber
-
-## 常用框架
-
 ### Express
 
 腾讯云8核3.2G，内存 16G。
 
-pm2管理6实例，带实际应用插件session/middleware/csrf/sequelizer等等，{hello:'world'}性能:
+1. pm2管理6实例，带实际应用插件session/middleware/csrf/sequelizer等等，{hello:'world'}性能:
 
 ```log
 Document Path:          /xn/helloworld
@@ -39,7 +23,7 @@ Time per request:       0.087 [ms] (mean,...)
 Transfer rate:          2853.67 [Kbytes/sec] received
 ```
 
-node启动，单实例，全新纯粹expressjs框架，{hello:'world'}性能:
+2. node启动，单实例，全新纯粹expressjs框架，{hello:'world'}性能:
 
 ```log
 Document Path:          /xn
@@ -58,7 +42,7 @@ Time per request:       0.059 [ms] (mean, across all concurrent requests)
 Transfer rate:          3677.52 [Kbytes/sec] received
 ```
 
-pm2启动4个实例，全新纯粹expressjs框架，{hello:'world'}性能:
+3. pm2启动4个实例，全新纯粹expressjs框架，{hello:'world'}性能:
 
 
 ```log
@@ -78,13 +62,7 @@ Time per request:       0.033 [ms] (mean, across all concurrent requests)
 Transfer rate:          6712.39 [Kbytes/sec] received
 ```
 
-### Koa
-
-## 管理工具
-
-### forever
-
-### pm2
+## PM2
 
 ```bash
 npm i -g pm2
@@ -127,8 +105,13 @@ module.exports = {
         script: 'bin/www',
         args: 'one two',
         instances: 2,
+        exec_mode: "cluster",
+        wait_ready: true,
+        listen_timeout: 3000,
         out_file: "log/pm2-out.log",
         error_file: "log/pm2-error.log",
+        merge_logs: true,
+        time: true,
         autorestart: false,
         watch: false,
         watch_delay: 1000,
