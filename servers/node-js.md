@@ -102,7 +102,7 @@ pm2 monit
 pm2 list
 pm2 status
 
-#修复pm2一直自动重启
+# **修复pm2一直自动重启**
 pm2 update
 ```
 
