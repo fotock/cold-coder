@@ -9,7 +9,17 @@
 
   https://purplesec.us/resources/cyber-security-policy-templates/
   
+  
 > 认证/验证一切来源数据: 包括但不限于 GET、POST、 COOKIE 等参数值。
+
+## CIS控制/Center for Information Security
+
+保护企业信息免受网络威胁的最佳实践。
+
+官方网站：https://www.cisecurity.org
+
+控制/实施文档：[CIS控制7.1版实施组1.2 中文版](/assets/CIS控制7.1版实施组1.2.xlsx)
+
 
 ## 基础设施安全/Infrastructure Security
 
