@@ -281,8 +281,9 @@ location ~* "/(\$(\&)?|\*|\"|\.|,|&|&amp;?)/?$" { deny all; }
 location ~* "/(=|\$&|_mm|(wp-)?config\.|cgi-|etc/passwd|muieblack)" { deny all; }
 location ~* "(&pws=0|_vti_|\(null\)|\{\$itemURL\}|echo(.*)kae|etc/passwd|eval\(|self/environ)" { deny all; }
 location ~*  "/(^$|readme|license|example|README|LEGALNOTICE|INSTALLATION|CHANGELOG)\.(txt|html|md)" { deny all; }
-location ~* "\.(aspx?|bash|bak?|cfg|cgi|php~|dll|exe|git|hg|ini|jsp|log|mdb|out|sql|svn|swp|tar|rdf)$" { deny all; }
-location ~* "/(^$|mobiquo|phpinfo|shell|sqlpatch|thumb|thumb_editor|thumbopen|timthumb|webshell)\.php" { deny all; }
+location ~* "\.(aspx?|bash|bak?|cnf|conf|cfg|cgi|php~|dll|exe|git|hg|ini|jsp|log|mdb|out|sql|svn|swp|tar|rdf)$" { deny all; }
+location ~* "/(^$|mobiquo|phpinfo|shell|sqlpatch|thumb|thumb_editor|thumbopen|timthumb|webshell)\." { deny all; }
+location ~* "/(shell)$" {deny all;}
 
 ## Block SQL injections
 set $block_sql_injections 0;
