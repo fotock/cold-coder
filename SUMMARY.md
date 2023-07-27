@@ -15,6 +15,7 @@
   * [6.5 Gogs](servers/gogs.md)
   * [6.6 MySQL](servers/mysql.md)
   * [6.7 Redis](servers/redis.md)
+  * [6.8 SFTP](servers/sftp.md)
 * [7 安全安全安全](security.md)
   * [7.1 Comodo](security/comodo.md)
   * [7.2 OpenVPN](security/openvpn.md)
