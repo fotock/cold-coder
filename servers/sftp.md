@@ -1,6 +1,6 @@
-# Linux SFTP 服务
+# Linux SSH/SFTP 服务
 
-## 1. 用户、目录与权限
+## 1. SFTP 用户、目录与权限
 
 ```bash
 groupadd sftpclients
@@ -37,7 +37,7 @@ mount -o remount,bind,ro /data/sftp/VUE/client/${USERSHORT}/Result "${SFTP_HOME}
 passwd ${FUSER}
 ```
 
-## 2. SSHD Config
+## 2. SFTP SSHD Config
 
 /etc/ssh/sshd_config:
 
@@ -82,3 +82,10 @@ umount /data/sftp/目标账户B/client/Result
 ### 参考资源
 
 1. [Understanding Bind Mounts](https://www.baeldung.com/linux/bind-mounts)
+
+
+## 4. SSH 安全配置/漏洞检测
+
+1. https://book.hacktricks.xyz/network-services-pentesting/pentesting-ssh
+2. (ssh-audit 配置)[https://www.ssh-audit.com/hardening_guides.html#rhel7]
+3. (SSH 安全在线检测)[https://www.ssh-audit.com]
