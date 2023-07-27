@@ -89,4 +89,4 @@ umount /data/sftp/目标账户B/client/Result
 1. https://book.hacktricks.xyz/network-services-pentesting/pentesting-ssh
 2. (ssh-audit 配置)[https://www.ssh-audit.com/hardening_guides.html#rhel7]
 3. (SSH 安全在线检测)[https://www.ssh-audit.com]
-4. (GitHub 工具)[https://github.com/jtesta/ssh-audit]
+4. [GitHub 工具](ttps://github.com/jtesta/ssh-audit)
