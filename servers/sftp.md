@@ -1,6 +1,6 @@
 # Linux SFTP 服务
 
-## 用户、目录与权限
+## 1. 用户、目录与权限
 
 ```bash
 groupadd sftpclients
@@ -37,7 +37,7 @@ mount -o remount,bind,ro /data/sftp/VUE/client/${USERSHORT}/Result "${SFTP_HOME}
 passwd ${FUSER}
 ```
 
-## sshd Config
+## 2. SSHD Config
 
 /etc/ssh/sshd_config:
 
@@ -57,7 +57,7 @@ Match Group sftpclients
 ```
 
 
-## 不同SFTP账户之间创建软链接
+## 3. 不同SFTP账户之间创建软链接
 
 ln 是不能用的。需要用 mount 创建，类似 ln。
 源目录(账户A下)和目标目录(账户B下)要先创建。
