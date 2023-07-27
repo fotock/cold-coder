@@ -41,7 +41,7 @@ passwd ${FUSER}
 
 /etc/ssh/sshd_config:
 
-```conf
+```cnf
 # 添加
 Subsystem       sftp    internal-sftp
 
