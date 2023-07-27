@@ -81,4 +81,4 @@ umount /data/sftp/目标账户B/client/Result
 
 ### 参考资源
 
-Understanding Bind Mounts[https://www.baeldung.com/linux/bind-mounts]
+1. [Understanding Bind Mounts](https://www.baeldung.com/linux/bind-mounts)
