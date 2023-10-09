@@ -35,7 +35,7 @@
 * [12 Mac](mac.md)
 * [13 码里码外](out-of-box.md)
   * [13.1 看过的景](out-of-box/photographing.md)
-  * [13.2 跑过的路](out-of-box/running.md)
+  * [13.2 压过的路](out-of-box/running.md)
   * [13.3 品过的茶](out-of-box/tea.md)
   * [13.4 追过的书](out-of-box/reading.md)
 * [14 当我编码时, 我在谈些什么](talks.md)
