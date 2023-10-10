@@ -605,3 +605,11 @@ proxy_set_header Upgrade $http_upgrade;
 ```conf
 proxy_cookie_path / "/; secure; SameSite=None;";
 ```
+
+## 列出服务器端支持的算法
+
+```bash
+nmap --script ssl-enum-ciphers -p 443 www.example.com
+```
+
+
