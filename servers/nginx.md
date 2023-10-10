@@ -391,6 +391,21 @@ location = /404.html {
 /usr/sbin/logrotate -dvf /etc/logrotate.d/nginx
 ```
 
+## 安全状态检查
+
+Qualys SSL Labs 实时在线检查：
+
+https://www.ssllabs.com/ssltest
+
+最好结果将显示为 A+。
+
+网站提供最佳实践：
+
+https://github.com/ssllabs/research/wiki/SSL-and-TLS-Deployment-Best-Practices
+
+还提供OpenSSL 证书生成，算法偏好设置等等内容：
+
+https://www.feistyduck.com/library/openssl-cookbook/online
 
 ## 性能测试 (ApacheBench)
 
