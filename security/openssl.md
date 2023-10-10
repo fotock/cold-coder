@@ -1,5 +1,7 @@
 # OpenSSL
 
+>> 一切为了安全
+
 ## 加密/校验算法的安全性列表
 
 https://ciphersuite.info/cs/?singlepage=true&sort=sec-desc
