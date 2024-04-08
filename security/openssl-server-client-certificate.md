@@ -73,6 +73,8 @@ openssl x509 -sha256 -req -in server-req.csr -out server-cert.pem -CA ca-cert.pe
 openssl pkcs12 -export -in server-cert.pem -inkey server-key.pem -out server.p12
 ```
 
+Nodejs 作为server端时，要移除server-key的密码。
+
 ### 4 创建 Client 证书
 
 cat client_cert_ext.cnf 
@@ -92,6 +94,7 @@ openssl req -new -sha256 -out client-req.csr -key client-key.pem -config openssl
 openssl x509 -sha256 -req -in client-req.csr -out client-cert.pem -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -days 3650 -outform PEM -extfile client_cert_ext.cnf
 openssl pkcs12 -export -in client-cert.pem -inkey client-key.pem -out client.p12
 ```
+Nginx 作为client端时，要移除client-key的密码。
 
 ### Nginx配置
 
