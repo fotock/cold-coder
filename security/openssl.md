@@ -18,6 +18,17 @@ https://www.ssllabs.com/ssltest
 
 https://www.feistyduck.com/library/openssl-cookbook/online
 
+## OpenSSL 生成证书与使用证书的版本一致性
+
+新版本的OpenSSL可能会摒弃一些不安全的Ciphers。如果生成证书时用的版本和使用时的版本差别过大，就有可能出现无法解证书或需要加legacy之类的选项，给使用造成麻烦。例如，OpenSSL2使用RC2是没有问题的，但到了OpenSSL3，就不再使用该Cipher了。
+
+有类似问题的证书最好进行转换为新的Cipher再使用。例如下面这样的 .p12 证书：
+
+```bash
+openssl pkcs12 -in old-cipher-cert.p12 -nodes -legacy -out new-cert.tmp
+openssl pkcs12 -in new-cert.tmp -export -out new-cipher-cert.p12
+```
+
 ## 性能测试 (单核, PV客户网关)
 
 **测试1: 腾讯云CVM S5, 4核4G**
@@ -55,6 +66,5 @@ rsa 2048 bits 0.001873s 0.000028s    534.0  35268.8
 rsa 4096 bits 0.009487s 0.000106s    105.4   9415.3
 ```
 
-好吧... 笔记本确实很弱。
-
+笔记本电脑确实弱。
 
