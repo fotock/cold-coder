@@ -163,7 +163,8 @@ ssl_trusted_certificate /web/soft/nginx/ssl/abc.com.ca-intermediates;
 # 有客户端证书需要验证的需求时，可用 ssl_client_certificate 或者 ssl_trusted_certificate
 # ssl_client_certificate   /web/cert/intermediate-prod/ca-bundle.pem;
 # ssl_verify_client optional;
-# ssl_verify_depth 3;
+# **这里的depth 和 ssl_client_certificate 配置的证书的depth要一致。这里的3表示证书里要包含: 证书+中间证书+根证书**
+# ssl_verify_depth 3; 
 
 
 # 获得A+评级必不可少. 15768000 = 6个月
