@@ -203,9 +203,20 @@ DefaultMallocZone_0x107670000     512.0M      2512K
 TOTAL                               1.1G      10.8M
 ```
 
-Hyper-Express 框架RPS在 15万 到 18万之间。延迟上也明显低很多。
+- Hyper-Express 框架RPS在 13万+/秒 （GET请求高的能到18万）。
+- POST JSON请求在 13万+/秒。
+- 延迟上也明显低很多。
+- 内存占用上，大概是Express的50%。
+- 缺点是，使用pug模板引擎后，性能骤降到 3k+/秒。
 
-内存占用上，大概是Express的50%。
+#### Ultimate Express
+
+https://github.com/dimdenGD/ultimate-express
+
+- 不使用模板引擎pug，和 Hyper-Express 区别不大，也在13万+/秒 。
+- 使用模板引擎pug后，降到8～9万/秒。
+- POST JSON 请求降到 7.5 ~ 8万/秒。
+
 
 #### Express
 
@@ -233,4 +244,4 @@ TOTAL                               1.7G      19.5M
 
 Express 框架RPS在 1.7万左右。
 
-纯框架看，Express性能和 Hyper-Express 差距很大。
+纯框架看，Express性能和 Hyper-Express 差距很大。使用模板引擎pug影响不大。
