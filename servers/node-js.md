@@ -177,6 +177,8 @@ Macbook Pro 14, 测试工具 wrk，输出 "hello, world".
 #### Hyper-Express
 
 ```bash
+NODE_ENV=production node index.js
+
 wrk -t1 -c10000 -d3s http://localhost:43211/
 ```
 
