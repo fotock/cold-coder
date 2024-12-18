@@ -168,3 +168,67 @@ ssh-keygen -t ed25519 -C 'abc@def.com'
 将 .ssh/id_ed25519.pub 的内容放到git服务器或对应项目的配置中。
 
 测试 git clone git@git.name.com:projectname.git 是否可用。
+
+
+## Express vs Hyper-Express
+
+Macbook Pro 14, 测试工具 wrk，输出 "hello, world".
+
+#### Hyper-Express
+
+```bash
+wrk -t1 -c10000 -d3s http://localhost:43211/
+```
+
+```bash
+Running 3s test @ http://localhost:43211/
+  1 threads and 10000 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   766.75us  327.40us   7.49ms   91.76%
+    Req/Sec   173.60k    17.90k  189.25k    83.33%
+  518049 requests in 3.04s, 43.97MB read
+  Socket errors: connect 9750, read 63, write 0, timeout 0
+Requests/sec: **170635.32**
+Transfer/sec:     14.48MB
+
+
+                                 VIRTUAL   RESIDENT 
+MALLOC ZONE                         SIZE       SIZE 
+===========                      =======  ========= 
+MallocHelperZone_0x107664000      600.0M      8528K 
+DefaultMallocZone_0x107670000     512.0M      2512K 
+===========                      =======  ========= 
+TOTAL                               1.1G      10.8M
+```
+
+Hyper-Express 框架RPS在 15万 到 18万之间。延迟上也明显低很多。
+
+内存占用上，大概是Express的50%。
+
+#### Express
+
+```log
+Running 3s test @ http://localhost:43210/
+  1 threads and 10000 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    14.01ms   17.64ms 876.15ms   99.88%
+    Req/Sec    17.88k     1.75k   19.17k    90.00%
+  53333 requests in 3.04s, 12.21MB read
+  Socket errors: connect 9750, read 80, write 0, timeout 0
+Requests/sec:  **17572.26**
+Transfer/sec:      4.02MB
+
+
+
+                                 VIRTUAL   RESIDENT 
+MALLOC ZONE                         SIZE       SIZE 
+===========                      =======  ========= 
+MallocHelperZone_0x109ee8000        1.2G      16.2M 
+DefaultMallocZone_0x109ef4000     512.0M      3408K 
+===========                      =======  ========= 
+TOTAL                               1.7G      19.5M 
+```
+
+Express 框架RPS在 1.7万左右。
+
+纯框架看，Express性能和 Hyper-Express 差距很大。
